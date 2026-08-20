@@ -1,3 +1,4 @@
+```
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -651,6 +652,194 @@
     .facility-status.unavailable { background: #fee2e2; color: #b91c1c; }
     .internal-path-warning { margin-top: 8px; padding: 8px 10px; border-radius: 7px; background: #fff7ed; color: #9a3412; font-size: 12px; font-weight: 700; line-height: 1.5; }
 
+        /* =========================================================
+       역사 내부 상세 이동 안내
+    ========================================================== */
+
+    .internal-detailed-step {
+      padding: 12px 0;
+    }
+
+    .internal-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 22px;
+      height: 22px;
+
+      margin-right: 5px;
+
+      border-radius: 50%;
+
+      background: #ede9fe;
+      color: #6d28d9;
+
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .internal-step-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+
+      margin-top: 7px;
+    }
+
+    .internal-mode-badge {
+      display: inline-block;
+
+      padding: 3px 8px;
+
+      border-radius: 999px;
+
+      background: #ede9fe;
+      color: #6d28d9;
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .internal-floor-badge {
+      display: inline-block;
+
+      padding: 3px 8px;
+
+      border-radius: 999px;
+
+      background: #f1f5f9;
+      color: #475569;
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .internal-step-route {
+      margin-top: 10px;
+
+      padding: 10px;
+
+      background: #ffffff;
+
+      border: 1px solid #ede9fe;
+      border-radius: 8px;
+    }
+
+    .internal-step-point {
+      display: flex;
+      align-items: center;
+
+      gap: 6px;
+
+      font-size: 12px;
+    }
+
+    .internal-point-label {
+      display: inline-block;
+
+      min-width: 34px;
+
+      padding: 2px 5px;
+
+      border-radius: 4px;
+
+      text-align: center;
+
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .internal-point-label.start {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .internal-point-label.end {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .internal-point-name {
+      flex: 1;
+
+      color: #0f172a;
+
+      font-weight: 700;
+    }
+
+    .internal-floor {
+      color: #64748b;
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .internal-step-arrow {
+      margin: 3px 0 3px 15px;
+
+      color: #a78bfa;
+
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .internal-facility-id {
+      margin-top: 6px;
+
+      color: #94a3b8;
+
+      font-size: 10px;
+    }
+
+    /* 역사 내부 접근성 동선 토글 */
+    .internal-route-toggle {
+      width: 100%;
+      margin-top: 10px;
+      padding: 9px 11px;
+      border: 1px solid #ddd6fe;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #6d28d9;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .internal-route-toggle:hover {
+      background: #f5f3ff;
+      border-color: #c4b5fd;
+    }
+
+    .internal-route-toggle-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .internal-route-toggle-icon {
+      font-size: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .internal-route-toggle.open .internal-route-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .internal-route-details {
+      display: none;
+      margin-top: 8px;
+    }
+
+    .internal-route-details.show {
+      display: block;
+    }
+
     .bus-accessibility-guide {
       margin-top: 10px;
       padding: 12px;
@@ -810,60 +999,8 @@
     .form-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
     .form-input { width: 100%; padding: 12px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 13.5px; outline: none; transition: all 0.2s; }
     .form-input:focus { border-color: #f39eba; box-shadow: 0 0 0 3px rgba(243, 158, 186, 0.2); }
-    
-    /* 기본 액션 버튼 */
-    .btn-action { 
-      width: 100%; 
-      padding: 14px; 
-      background: #f8ccdb; 
-      color: #000000; 
-      border: none; 
-      border-radius: 12px; 
-      font-weight: 800; 
-      font-size: 15px; 
-      cursor: pointer; 
-      box-shadow: 0 4px 10px rgba(243, 158, 186, 0.4); 
-      transition: all 0.2s; 
-    }
+    .btn-action { width: 100%; padding: 14px; background: #f8ccdb; color: #000000; border: none; border-radius: 12px; font-weight: 800; font-size: 15px; cursor: pointer; box-shadow: 0 4px 10px rgba(243, 158, 186, 0.4); transition: all 0.2s; }
     .btn-action:hover { background: #f39eba; color: #ffffff; }
-
-    /* 슬림한 모달 하단 버튼 스타일 (이동 조건 모달 전용) */
-    .btn-modal-slim {
-      flex: 1;
-      padding: 10px 16px;
-      font-size: 14px;
-      font-weight: 800;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 42px;
-    }
-
-    .btn-modal-slim.cancel {
-      background: #e2e8f0;
-      color: #475569;
-    }
-
-    .btn-modal-slim.cancel:hover {
-      background: #cbd5e1;
-      color: #0f172a;
-    }
-
-    .btn-modal-slim.confirm {
-      background: #f8ccdb;
-      color: #000000;
-      box-shadow: 0 2px 6px rgba(243, 158, 186, 0.4);
-    }
-
-    .btn-modal-slim.confirm:hover {
-      background: #f39eba;
-      color: #ffffff;
-    }
-
     .checkbox-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
     .checkbox-label { font-size: 14px; font-weight: 700; color: #334155; display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 12px 14px; border-radius: 10px; background: #f8fafc; border: 1.5px solid #e2e8f0; transition: all 0.2s; }
     .checkbox-label:hover { background: #fdf2f4; border-color: #f39eba; }
@@ -1051,11 +1188,7 @@
         </label>
       </div>
 
-      <!-- 슬림한 형태의 버튼 가로 정렬 -->
-      <div style="display: flex; gap: 10px;">
-        <button class="btn-modal-slim cancel" onclick="closeProfileModal()">취소</button>
-        <button class="btn-modal-slim confirm" onclick="completeOnboarding()">적용하기</button>
-      </div>
+      <button class="btn-action" onclick="completeOnboarding()">설정 완료하고 길찾기 시작</button>
     </div>
   </div>
 
@@ -1257,10 +1390,6 @@
 
     function openProfileModal() {
       document.getElementById('profile-modal').style.display = 'flex';
-    }
-
-    function closeProfileModal() {
-      document.getElementById('profile-modal').style.display = 'none';
     }
 
     function completeOnboarding() {
@@ -2002,88 +2131,348 @@ function getInternalAccessibilityPaths(route) {
       return { text: '실시간 상태 미확인', className: 'unknown' };
     }
 
-    function renderInternalPathTimelineItem(path) {
-      const stationName = getInternalPathStationName(path) || '역사';
-      const status = String(path.status || 'UNKNOWN').toUpperCase();
+        function renderInternalPathTimelineItem(path) {
+      const stationName =
+        getInternalPathStationName(path) || '역사';
 
-      // 신형 V2 path_finder 결과
-      const steps = Array.isArray(path.steps) ? path.steps : [];
+      const status = String(
+        path.status || 'UNKNOWN'
+      ).toUpperCase();
+
+      const steps = Array.isArray(path.steps)
+        ? path.steps
+        : [];
 
       let pathHtml = '';
 
       // =========================================================
-      // 1. 신형 V2 steps가 있으면 실제 이동 안내를 순서대로 표시
+      // 1. V2 역사 내부 상세 경로
       // =========================================================
+
       if (steps.length > 0) {
+
         pathHtml = steps.map((step, index) => {
-          const mode = String(step.mode || '').toUpperCase();
 
-          const instruction =
-            String(step.instruction || '').trim()
-            || String(step.target_name || '').trim()
-            || '역사 내부 이동';
+          const mode = String(
+            step.mode || ''
+          ).toUpperCase();
 
-          const floor = String(step.floor || '').trim();
+          // -------------------------------------------------------
+          // 장소 정보
+          // -------------------------------------------------------
+
+          const sourceName = String(
+            step.source_name || ''
+          ).trim();
+
+          const targetName = String(
+            step.target_name || ''
+          ).trim();
+
+          const sourceFloor = String(
+            step.source_floor || ''
+          ).trim();
+
+          const targetFloor = String(
+            step.target_floor || ''
+          ).trim();
+
+          // -------------------------------------------------------
+          // 이동 방식
+          // -------------------------------------------------------
 
           let icon = 'fa-person-walking';
-          let modeLabel = '도보 이동';
+
+          let modeLabel =
+            String(step.mode_label || '').trim()
+            || '도보 이동';
 
           if (mode === 'ELEVATOR') {
             icon = 'fa-elevator';
             modeLabel = '엘리베이터';
           }
 
+          else if (mode === 'ESCALATOR') {
+            icon = 'fa-stairs';
+            modeLabel = '에스컬레이터';
+          }
+
+          else if (mode === 'STAIRS') {
+            icon = 'fa-stairs';
+            modeLabel = '계단';
+          }
+
+          else if (
+            mode === 'RAMP'
+            || mode === 'WALKWAY'
+            || mode === 'WALK'
+            || mode === 'WALKING'
+          ) {
+            icon = 'fa-person-walking';
+
+            if (!step.mode_label) {
+              modeLabel = '도보 이동';
+            }
+          }
+
+          // -------------------------------------------------------
+          // 층 이동 표시
+          // -------------------------------------------------------
+
+          let floorText =
+            String(step.floor_text || '').trim();
+
+          if (!floorText) {
+
+            if (
+              sourceFloor
+              && targetFloor
+              && sourceFloor !== targetFloor
+            ) {
+              floorText =
+                `${sourceFloor} → ${targetFloor}`;
+            }
+
+            else {
+              floorText =
+                targetFloor
+                || sourceFloor
+                || '';
+            }
+          }
+
+          // -------------------------------------------------------
+          // 실제 안내 문구
+          //
+          // detailed_instruction을 최우선으로 사용
+          // -------------------------------------------------------
+
+          const instruction =
+            String(
+              step.detailed_instruction || ''
+            ).trim()
+
+            || String(
+              step.instruction || ''
+            ).trim()
+
+            || (
+              sourceName && targetName
+                ? `${sourceName}에서 ${targetName}으로 이동하세요.`
+                : ''
+            )
+
+            || targetName
+
+            || '역사 내부 이동';
+
+          // -------------------------------------------------------
+          // 출발 → 도착 위치
+          // -------------------------------------------------------
+
+          let locationHtml = '';
+
+          if (
+            sourceName
+            && targetName
+            && sourceName !== targetName
+          ) {
+
+            locationHtml = `
+              <div class="internal-step-route">
+
+                <div class="internal-step-point">
+                  <span class="internal-point-label start">
+                    출발
+                  </span>
+
+                  <span class="internal-point-name">
+                    ${escapeHtml(sourceName)}
+                  </span>
+
+                  ${
+                    sourceFloor
+                      ? `<span class="internal-floor">
+                           ${escapeHtml(sourceFloor)}
+                         </span>`
+                      : ''
+                  }
+                </div>
+
+                <div class="internal-step-arrow">
+                  ↓
+                </div>
+
+                <div class="internal-step-point">
+                  <span class="internal-point-label end">
+                    도착
+                  </span>
+
+                  <span class="internal-point-name">
+                    ${escapeHtml(targetName)}
+                  </span>
+
+                  ${
+                    targetFloor
+                      ? `<span class="internal-floor">
+                           ${escapeHtml(targetFloor)}
+                         </span>`
+                      : ''
+                  }
+                </div>
+
+              </div>
+            `;
+          }
+
+          // -------------------------------------------------------
+          // facility id
+          // -------------------------------------------------------
+
+          const facilityId =
+            step.facility_id !== null
+            && step.facility_id !== undefined
+            && String(step.facility_id).trim()
+
+              ? String(step.facility_id).trim()
+
+              : '';
+
+          // -------------------------------------------------------
+          // 한 단계 렌더링
+          // -------------------------------------------------------
+
           return `
-            <div class="facility-step">
+            <div class="facility-step internal-detailed-step">
+
               <div class="facility-name">
+
+                <span class="internal-step-number">
+                  ${index + 1}
+                </span>
+
                 <i class="fa-solid ${icon}"></i>
-                ${index + 1}. ${escapeHtml(instruction)}
+
+                <span>
+                  ${escapeHtml(instruction)}
+                </span>
+
               </div>
 
-              <div class="facility-location">
-                ${escapeHtml(modeLabel)}
-                ${floor ? ` · ${escapeHtml(floor)}` : ''}
+              <div class="internal-step-meta">
+
+                <span class="internal-mode-badge">
+                  ${escapeHtml(modeLabel)}
+                </span>
+
+                ${
+                  floorText
+                    ? `
+                      <span class="internal-floor-badge">
+                        ${escapeHtml(floorText)}
+                      </span>
+                    `
+                    : ''
+                }
+
               </div>
+
+              ${locationHtml}
+
+              ${
+                facilityId
+                  ? `
+                    <div class="internal-facility-id">
+                      시설 ID · ${escapeHtml(facilityId)}
+                    </div>
+                  `
+                  : ''
+              }
+
             </div>
           `;
+
         }).join('');
       }
 
       // =========================================================
       // 2. 구형 internal_path fallback
       // =========================================================
+
       else {
-        const facilities = Array.isArray(path.required_facilities)
-          ? path.required_facilities
-          : [];
+
+        const facilities =
+          Array.isArray(path.required_facilities)
+            ? path.required_facilities
+            : [];
 
         if (facilities.length > 0) {
-          pathHtml = facilities.map((facility, index) => {
-            const facilityName = getFacilityTypeName(
-              facility.facility_type
-            );
 
-            const floorText = getFloorMovementText(
-              facility
-            );
+          pathHtml = facilities.map(
+            (facility, index) => {
 
-            const headlineParts = [
-              `${index + 1}. ${facilityName} 이용`
-            ];
+              const facilityName =
+                getFacilityTypeName(
+                  facility.facility_type
+                );
 
-            if (floorText) {
-              headlineParts.push(floorText);
-            }
+              const floorText =
+                getFloorMovementText(
+                  facility
+                );
 
-            return `
-              <div class="facility-step">
-                <div class="facility-name">
-                  ${headlineParts.map(v => escapeHtml(v)).join(' · ')}
+              const realtimeStatus =
+                getRealtimeStatusInfo(
+                  facility
+                );
+
+              const detailLocation =
+                String(
+                  facility.detail_location || ''
+                ).trim();
+
+              return `
+                <div class="facility-step">
+
+                  <div class="facility-name">
+
+                    ${index + 1}.
+                    ${escapeHtml(facilityName)}
+                    이용
+
+                    ${
+                      floorText
+                        ? ` · ${escapeHtml(floorText)}`
+                        : ''
+                    }
+
+                  </div>
+
+                  ${
+                    detailLocation
+                      ? `
+                        <div class="facility-location">
+                          ${escapeHtml(detailLocation)}
+                        </div>
+                      `
+                      : ''
+                  }
+
+                  <span class="
+                    facility-status
+                    ${realtimeStatus.className}
+                  ">
+                    ${escapeHtml(realtimeStatus.text)}
+                  </span>
+
                 </div>
-              </div>
-            `;
-          }).join('');
-        } else {
+              `;
+            }
+          ).join('');
+        }
+
+        else {
+
           pathHtml = `
             <div class="facility-step">
               <div class="facility-name">
@@ -2095,11 +2484,13 @@ function getInternalAccessibilityPaths(route) {
       }
 
       // =========================================================
-      // 3. 경로 실패 안내
+      // 3. 실패 / 경고
       // =========================================================
+
       let warningHtml = '';
 
       if (status !== 'SUCCESS') {
+
         const message =
           path.message
           || path.node_resolution?.message
@@ -2115,28 +2506,44 @@ function getInternalAccessibilityPaths(route) {
       // =========================================================
       // 4. 상단 요약
       // =========================================================
-      const nodePath = Array.isArray(path.node_path)
-        ? path.node_path
-        : [];
 
-      const segmentCount = steps.length > 0
-        ? steps.length
-        : Math.max(nodePath.length - 1, 0);
+      const nodePath =
+        Array.isArray(path.node_path)
+          ? path.node_path
+          : [];
 
-      const nodePathText = status === 'SUCCESS'
-        ? `${segmentCount}개 내부 구간 이동`
-        : '역사 내부 동선 확인 필요';
+      const segmentCount =
+        steps.length > 0
+          ? steps.length
+          : Math.max(
+              nodePath.length - 1,
+              0
+            );
+
+      const nodePathText =
+        status === 'SUCCESS'
+          ? `${segmentCount}개 내부 구간 이동`
+          : '역사 내부 동선 확인 필요';
+
+      // =========================================================
+      // 5. 최종 HTML
+      // =========================================================
 
       return `
         <div class="timeline-item">
+
           <div class="timeline-dot accessibility">
             <i class="fa-solid fa-wheelchair-move"></i>
           </div>
 
           <div class="step-header">
+
             <span class="step-title">
-              ${escapeHtml(getInternalPathTitle(path))}
+              ${escapeHtml(
+                getInternalPathTitle(path)
+              )}
             </span>
+
           </div>
 
           <div class="step-desc">
@@ -2144,15 +2551,62 @@ function getInternalAccessibilityPaths(route) {
           </div>
 
           <div class="accessibility-guide">
+
             <div class="accessibility-guide-title">
-              ${escapeHtml(stationName)} 내부 접근성 동선
+              ${escapeHtml(stationName)}
+              내부 접근성 동선
             </div>
 
-            ${pathHtml}
-            ${warningHtml}
+            <button
+              type="button"
+              class="internal-route-toggle"
+              onclick="toggleInternalPath(this)"
+              aria-expanded="false"
+            >
+              <span class="internal-route-toggle-left">
+                <i class="fa-solid fa-chevron-down internal-route-toggle-icon"></i>
+                <span class="internal-route-toggle-text">
+                  상세 동선 (${segmentCount}단계) 보기
+                </span>
+              </span>
+              <span>접기/펼치기</span>
+            </button>
+
+            <div class="internal-route-details">
+              ${pathHtml}
+              ${warningHtml}
+            </div>
+
           </div>
+
         </div>
       `;
+    }
+
+
+    function toggleInternalPath(button) {
+      if (!button) return;
+
+      const guide = button.closest('.accessibility-guide');
+      if (!guide) return;
+
+      const details = guide.querySelector('.internal-route-details');
+      const text = button.querySelector('.internal-route-toggle-text');
+      if (!details) return;
+
+      const isOpen = details.classList.toggle('show');
+      button.classList.toggle('open', isOpen);
+      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+      const stepCount = details.querySelectorAll('.internal-detailed-step').length;
+      const fallbackCount = details.querySelectorAll('.facility-step').length;
+      const count = stepCount || fallbackCount;
+
+      if (text) {
+        text.textContent = isOpen
+          ? '상세 동선 접기'
+          : `상세 동선 (${count}단계) 보기`;
+      }
     }
 
     function getStepColor(step) {
@@ -2601,3 +3055,4 @@ function getInternalAccessibilityPaths(route) {
 </body>
 
 </html>
+```
