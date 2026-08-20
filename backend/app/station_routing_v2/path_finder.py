@@ -12,6 +12,24 @@ class PathNotFoundError(Exception):
     pass
 
 
+# ==============================================================================
+# 💡 이동 수단 표시용 라벨 (JSON 데이터가 아니라 코드 상수로 관리)
+# ==============================================================================
+
+MODE_LABELS: dict[str, str] = {
+    "WALK": "도보",
+    "ELEVATOR": "엘리베이터",
+    "ESCALATOR": "에스컬레이터",
+    "STAIRS": "계단",
+}
+
+
+def _get_mode_label(mode: str | None) -> str:
+    if not mode:
+        return "이동"
+    return MODE_LABELS.get(str(mode).upper(), str(mode))
+
+
 def apply_confirmed_edges_only(
     graph: nx.DiGraph,
 ) -> nx.DiGraph:
@@ -177,6 +195,11 @@ def get_path_edges(
 ) -> list[dict]:
     """
     node 경로를 실제 edge 정보 배열로 변환한다.
+
+    💡 [수정] source_file(로컬 절대경로, 그래프 병합 디버깅용 메타데이터)은
+    사용자 응답으로 나가면 안 되는 값이라 여기서 걸러낸다. get_path_steps()도
+    이 함수의 결과를 그대로 쓰기 때문에, 여기 한 곳만 고치면 edge_path와
+    steps 양쪽 다 자동으로 깨끗해진다.
     """
 
     if len(node_path) < 2:
@@ -199,6 +222,9 @@ def get_path_edges(
             target,
         ).copy()
 
+        # 내부 디버깅/병합용 메타데이터는 API 응답에서 제외한다.
+        edge_data.pop("source_file", None)
+
         result.append(
             {
                 "source": source,
@@ -210,14 +236,45 @@ def get_path_edges(
     return result
 
 
+def _describe_node(graph: nx.DiGraph, node_id: str) -> dict:
+    """
+    node 하나에 대한 표시용 정보(이름/층)를 안전하게 만든다.
+
+    name/floor가 그래프 JSON에 없는 경우, 빈 문자열이나 None을 그대로
+    프론트에 내려보내는 대신 node_id 자체를 이름 fallback으로 사용해서
+    최소한 "뭔가 표시는 되게" 만든다. floor는 없으면 None을 유지한다
+    (없는 층을 지어내는 것보다, 프론트에서 층 표시 자체를 생략하는 게 낫다).
+    """
+
+    node_data = graph.nodes.get(node_id, {})
+
+    name = node_data.get("name") or node_id
+    floor = node_data.get("floor")
+
+    return {"name": name, "floor": floor}
+
+
+def _build_floor_text(source_floor: str | None, target_floor: str | None) -> str | None:
+    if not source_floor and not target_floor:
+        return None
+    if not source_floor or not target_floor:
+        return source_floor or target_floor
+    if source_floor == target_floor:
+        return source_floor
+    return f"{source_floor} → {target_floor}"
+
+
 def get_path_steps(
     graph: nx.DiGraph,
     node_path: list[str],
 ) -> list[dict]:
     """
-    Flutter/API 응답에서 사용하기 좋은 단계별 안내 정보를 만든다.
+    역사 내부 경로의 단계별 이동 정보를 생성한다.
 
-    각 edge의 instruction을 그대로 사용한다.
+    - 기존 필드는 유지한다.
+    - source/target 위치와 층 정보를 함께 제공한다.
+    - auto_reverse=True인 edge는 원래 정방향 instruction을
+      그대로 사용하지 않고 실제 이동 방향 기준으로 안내문을 재생성한다.
     """
 
     edge_path = get_path_edges(
@@ -227,24 +284,235 @@ def get_path_steps(
 
     steps = []
 
-    for index, edge in enumerate(edge_path, start=1):
-        target_node = graph.nodes[edge["target"]]
+    for index, edge in enumerate(
+        edge_path,
+        start=1,
+    ):
+        source_id = edge["source"]
+        target_id = edge["target"]
+
+        source_node = graph.nodes[source_id]
+        target_node = graph.nodes[target_id]
+
+        # ------------------------------------------------------
+        # 노드 정보
+        # ------------------------------------------------------
+
+        source_name = (
+            source_node.get("name")
+            or source_id
+        )
+
+        target_name = (
+            target_node.get("name")
+            or target_id
+        )
+
+        source_floor = source_node.get(
+            "floor"
+        )
+
+        target_floor = target_node.get(
+            "floor"
+        )
+
+        # ------------------------------------------------------
+        # 이동 방식
+        # ------------------------------------------------------
+
+        mode = str(
+            edge.get("mode")
+            or "WALK"
+        ).upper()
+
+        mode_label = _get_mode_label(
+            mode
+        )
+
+        # ------------------------------------------------------
+        # 층 이동 문자열
+        # ------------------------------------------------------
+
+        floor_text = (
+            _build_floor_text(
+                source_floor,
+                target_floor,
+            )
+        )
+
+        # ------------------------------------------------------
+        # 원본 instruction
+        # ------------------------------------------------------
+
+        original_instruction = (
+            edge.get("instruction")
+        )
+
+        auto_reverse = bool(
+            edge.get(
+                "auto_reverse",
+                False,
+            )
+        )
+
+        # ------------------------------------------------------
+        # 실제 사용자 표시용 instruction 생성
+        #
+        # auto_reverse인 경우 기존 instruction은
+        # 정방향 기준 문장이므로 다시 만든다.
+        # ------------------------------------------------------
+
+        if auto_reverse:
+
+            # --------------------------------------------------
+            # 엘리베이터
+            # --------------------------------------------------
+
+            if mode == "ELEVATOR":
+
+                if (
+                    source_floor
+                    and target_floor
+                    and source_floor != target_floor
+                ):
+                    display_instruction = (
+                        f"엘리베이터를 이용해 "
+                        f"{source_floor}에서 "
+                        f"{target_floor}로 이동"
+                    )
+
+                else:
+                    display_instruction = (
+                        f"{source_name}에서 "
+                        f"{target_name}으로 "
+                        f"엘리베이터를 이용해 이동"
+                    )
+
+            # --------------------------------------------------
+            # 에스컬레이터
+            # --------------------------------------------------
+
+            elif mode == "ESCALATOR":
+
+                if (
+                    source_floor
+                    and target_floor
+                    and source_floor != target_floor
+                ):
+                    display_instruction = (
+                        f"에스컬레이터를 이용해 "
+                        f"{source_floor}에서 "
+                        f"{target_floor}로 이동"
+                    )
+
+                else:
+                    display_instruction = (
+                        f"{source_name}에서 "
+                        f"{target_name}으로 이동"
+                    )
+
+            # --------------------------------------------------
+            # 계단
+            # --------------------------------------------------
+
+            elif mode == "STAIRS":
+
+                if (
+                    source_floor
+                    and target_floor
+                    and source_floor != target_floor
+                ):
+                    display_instruction = (
+                        f"계단을 이용해 "
+                        f"{source_floor}에서 "
+                        f"{target_floor}로 이동"
+                    )
+
+                else:
+                    display_instruction = (
+                        f"{source_name}에서 "
+                        f"{target_name}으로 이동"
+                    )
+
+            # --------------------------------------------------
+            # WALK
+            # --------------------------------------------------
+
+            else:
+                display_instruction = (
+                    f"{source_name}에서 "
+                    f"{target_name}으로 이동"
+                )
+
+        # ------------------------------------------------------
+        # 정방향 edge는 기존 그래프 instruction 유지
+        # ------------------------------------------------------
+
+        else:
+
+            if original_instruction:
+                display_instruction = str(
+                    original_instruction
+                )
+
+            elif mode == "ELEVATOR":
+                if (
+                    source_floor
+                    and target_floor
+                    and source_floor != target_floor
+                ):
+                    display_instruction = (
+                        f"엘리베이터를 이용해 "
+                        f"{source_floor}에서 "
+                        f"{target_floor}로 이동"
+                    )
+                else:
+                    display_instruction = (
+                        f"{source_name}에서 "
+                        f"{target_name}으로 이동"
+                    )
+
+            else:
+                display_instruction = (
+                    f"{source_name}에서 "
+                    f"{target_name}으로 이동"
+                )
+
+        # ------------------------------------------------------
+        # step 생성
+        # ------------------------------------------------------
 
         steps.append(
             {
+                # 기존 필드
                 "step": index,
-                "source": edge["source"],
-                "target": edge["target"],
-                "target_name": target_node.get("name"),
-                "floor": target_node.get("floor"),
-                "mode": edge.get("mode"),
-                "facility_id": edge.get("facility_id"),
-                "instruction": edge.get("instruction"),
+                "source": source_id,
+                "target": target_id,
+                "target_name": target_name,
+                "floor": target_floor,
+                "mode": mode,
+                "facility_id": edge.get(
+                    "facility_id"
+                ),
+
+                # 중요:
+                # 프론트가 기존 instruction을 그대로 사용하므로
+                # 실제 표시용 문장으로 교체한다.
+                "instruction": display_instruction,
+
+                # 신규 상세 필드
+                "source_name": source_name,
+                "source_floor": source_floor,
+                "target_floor": target_floor,
+                "mode_label": mode_label,
+                "floor_text": floor_text,
+
+                # 디버깅용
+                "auto_reverse": auto_reverse,
             }
         )
 
     return steps
-
 
 def find_internal_route(
     graph: nx.DiGraph,
