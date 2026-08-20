@@ -1,0 +1,251 @@
+{
+  "station_code": "JJA_SB",
+  "station_name": "정자역 (수인분당선)",
+  "line": "SUIN_BUNDANG",
+  "parent_station_code": "JJA",
+  "segment": "SUIN_BUNDANG",
+  "format_reference": "모란역/이매역 노선별 분리 그래프(moran_suinbundang_graph.json / imae_suinbundang_graph.json)와 동일한 포맷 — 정자역의 각 노선을 독립된 파일로 유지합니다.",
+  "interfaces": [
+    {
+      "node_id": "JJA_SB_PLATFORM_MIGEUM",
+      "role": "미금 방면 승강장",
+      "connects_to_file": "jeongja_transfer_trunk_graph.json",
+      "connects_to_node": "JJA_SBMIGEUM_SD_EV_B2"
+    },
+    {
+      "node_id": "JJA_SB_PLATFORM_SUNAE",
+      "role": "수내 방면 승강장",
+      "connects_to_file": "jeongja_transfer_trunk_graph.json",
+      "connects_to_node": "JJA_SBSUNAE_SD_EV_B2"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "JJA_SB_EXIT_2",
+      "name": "2번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SB_EXIT_2_EV_G1",
+      "name": "2번 출입구 인근 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null,
+      "note": "2번 출입구 앞 엘리베이터 이용."
+    },
+    {
+      "id": "JJA_SB_EXIT_2_EV_B1",
+      "name": "2번 출입구 인근 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null,
+      "note": "2번 출입구 앞 엘리베이터 이용."
+    },
+    {
+      "id": "JJA_SB_EXIT_4",
+      "name": "4번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SB_EXIT_4_EV_G1",
+      "name": "4번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SB_EXIT_4_EV_B1",
+      "name": "4번 출입구 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SB_MIGEUM_EV_B1",
+      "name": "미금 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SB_MIGEUM_EV_B2",
+      "name": "미금 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SB_PLATFORM_MIGEUM",
+      "name": "미금 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SB_SUNAE_EV_B1",
+      "name": "수내 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SB_SUNAE_EV_B2",
+      "name": "수내 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SB_PLATFORM_SUNAE",
+      "name": "수내 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "JJA_WALK_EXIT2_EV",
+      "source": "JJA_SB_EXIT_2",
+      "target": "JJA_SB_EXIT_2_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "2번 출입구 앞 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_EV_EXIT2",
+      "source": "JJA_SB_EXIT_2_EV_G1",
+      "target": "JJA_SB_EXIT_2_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2056151",
+      "instruction": "엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "JJA_WALK_EXIT2EV_MIGEUM",
+      "source": "JJA_SB_EXIT_2_EV_B1",
+      "target": "JJA_SB_MIGEUM_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 미금 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_WALK_EXIT2EV_SUNAE",
+      "source": "JJA_SB_EXIT_2_EV_B1",
+      "target": "JJA_SB_SUNAE_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 수내 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_WALK_EXIT4_EV",
+      "source": "JJA_SB_EXIT_4",
+      "target": "JJA_SB_EXIT_4_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "4번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_EV_EXIT4",
+      "source": "JJA_SB_EXIT_4_EV_G1",
+      "target": "JJA_SB_EXIT_4_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2056152",
+      "instruction": "엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "JJA_WALK_EXIT4EV_MIGEUM",
+      "source": "JJA_SB_EXIT_4_EV_B1",
+      "target": "JJA_SB_MIGEUM_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 미금 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_WALK_EXIT4EV_SUNAE",
+      "source": "JJA_SB_EXIT_4_EV_B1",
+      "target": "JJA_SB_SUNAE_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 수내 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_EV_MIGEUM",
+      "source": "JJA_SB_MIGEUM_EV_B1",
+      "target": "JJA_SB_MIGEUM_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2050987",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "JJA_WALK_MIGEUM_PLATFORM",
+      "source": "JJA_SB_MIGEUM_EV_B2",
+      "target": "JJA_SB_PLATFORM_MIGEUM",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "미금 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_EV_SUNAE",
+      "source": "JJA_SB_SUNAE_EV_B1",
+      "target": "JJA_SB_SUNAE_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2050986",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "JJA_WALK_SUNAE_PLATFORM",
+      "source": "JJA_SB_SUNAE_EV_B2",
+      "target": "JJA_SB_PLATFORM_SUNAE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "수내 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    }
+  ],
+  "notes": [
+    "역 안내도 4매(3·4번 출입구 각각 → 미금/수내 방면)와 승강기_전체통합.json(정자역·수인분당선, K230)을 기준으로 작성했습니다.",
+    "3번 출입구에는 자체 엘리베이터가 없습니다. 안내도의 3번 출입구 경로 상세 이동경로에도 '2번 출입구 근처 엘리베이터'로 안내되어 있고, 승강기_전체통합.json에도 2번 출입구 앞 엘리베이터(2056151, dtlLoc: '(1F) 2번출입구 앞(B1)맞이방 미금방향 역무실 옆 통로') 하나만 확인되어, 3번 출입구 경로가 이 엘리베이터를 공유하는 것으로 반영했습니다.",
+    "4번 출입구 엘리베이터=2056152, 미금 방면 엘리베이터=2050987, 수내 방면 엘리베이터=2050986으로 매칭했습니다(모두 2026-08-16 19:36 기준 운행중). 층수 표기(지하1층=대합실/표내는곳 층, 지하2층=승강장 층)는 안내도 문구와 시설 데이터가 서로 일치해 별도 오프셋 없이 그대로 반영했습니다.",
+    "정자역은 수인분당선↔신분당선 환승역이며, 두 파일 간 환승 통로는 jeongja_transfer_trunk_graph.json에서 별도로 연결됩니다.",
+    "1번·2번 출입구 자체의 에스컬레이터/엘리베이터 상세 경로는 이번 안내도에 포함되지 않아 이 그래프에는 반영하지 않았습니다."
+  ]
+}

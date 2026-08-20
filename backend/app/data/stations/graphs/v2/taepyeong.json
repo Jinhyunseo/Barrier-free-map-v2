@@ -1,0 +1,200 @@
+{
+  "station_code": "TPY",
+  "station_name": "태평역",
+  "line": "SUIN_BUNDANG",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "TPY_EXIT_5",
+      "name": "5번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "TPY_EXIT5_EV_G1",
+      "name": "5번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "TPY_EXIT5_EV_B1",
+      "name": "5번 출입구 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "TPY_GACHON_EV_B1",
+      "name": "가천대 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "TPY_GACHON_EV_B2",
+      "name": "가천대 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "TPY_PLATFORM_GACHON",
+      "name": "가천대 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "TPY_MORAN_EV_B1",
+      "name": "모란 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "TPY_MORAN_EV_B2",
+      "name": "모란 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "TPY_PLATFORM_MORAN",
+      "name": "모란 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "TPY_WALK_EXIT5_EV",
+      "source": "TPY_EXIT_5",
+      "target": "TPY_EXIT5_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "5번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "TPY_ROUTE_EXIT5_GACHON",
+        "TPY_ROUTE_EXIT5_MORAN"
+      ]
+    },
+
+    {
+      "id": "TPY_EV_EXIT5",
+      "source": "TPY_EXIT5_EV_G1",
+      "target": "TPY_EXIT5_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2054928",
+      "instruction": "5번 출입구 엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "TPY_ROUTE_EXIT5_GACHON",
+        "TPY_ROUTE_EXIT5_MORAN"
+      ]
+    },
+
+    {
+      "id": "TPY_WALK_EXIT5_GACHON_EV",
+      "source": "TPY_EXIT5_EV_B1",
+      "target": "TPY_GACHON_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 1층 맞이방에서 가천대 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "TPY_ROUTE_EXIT5_GACHON"
+      ]
+    },
+
+    {
+      "id": "TPY_EV_GACHON",
+      "source": "TPY_GACHON_EV_B1",
+      "target": "TPY_GACHON_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2054926",
+      "instruction": "가천대 방면 엘리베이터를 이용해 지하 2층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "TPY_ROUTE_EXIT5_GACHON"
+      ]
+    },
+
+    {
+      "id": "TPY_WALK_GACHON_PLATFORM",
+      "source": "TPY_GACHON_EV_B2",
+      "target": "TPY_PLATFORM_GACHON",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "가천대 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "TPY_ROUTE_EXIT5_GACHON"
+      ]
+    },
+
+    {
+      "id": "TPY_WALK_EXIT5_MORAN_EV",
+      "source": "TPY_EXIT5_EV_B1",
+      "target": "TPY_MORAN_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 1층 맞이방에서 모란 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "TPY_ROUTE_EXIT5_MORAN"
+      ]
+    },
+
+    {
+      "id": "TPY_EV_MORAN",
+      "source": "TPY_MORAN_EV_B1",
+      "target": "TPY_MORAN_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2054927",
+      "instruction": "모란 방면 엘리베이터를 이용해 지하 2층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "TPY_ROUTE_EXIT5_MORAN"
+      ]
+    },
+
+    {
+      "id": "TPY_WALK_MORAN_PLATFORM",
+      "source": "TPY_MORAN_EV_B2",
+      "target": "TPY_PLATFORM_MORAN",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "모란 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "TPY_ROUTE_EXIT5_MORAN"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "station_code": "GCU",
+  "station_name": "가천대역",
+  "line": "SUIN_BUNDANG",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "GCU_EXIT_2",
+      "name": "2번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "GCU_EXIT2_EV_G1",
+      "name": "2번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "GCU_EXIT2_EV_B1",
+      "name": "2번 출입구 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "GCU_EXIT_45",
+      "name": "4/5번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "GCU_EXIT45_EV_G1",
+      "name": "4/5번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "GCU_EXIT45_EV_B1",
+      "name": "4/5번 출입구 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "GCU_TAEPYEONG_EV_B1",
+      "name": "태평방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "GCU_TAEPYEONG_EV_B2",
+      "name": "태평방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "GCU_PLATFORM_TAEPYEONG",
+      "name": "태평방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "GCU_BOKJEONG_EV_B1",
+      "name": "복정방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "GCU_BOKJEONG_EV_B2",
+      "name": "복정방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "GCU_PLATFORM_BOKJEONG",
+      "name": "복정방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "GCU_WALK_EXIT2_EV",
+      "source": "GCU_EXIT_2",
+      "target": "GCU_EXIT2_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "2번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT2_TAEPYEONG",
+        "GCU_ROUTE_EXIT2_BOKJEONG"
+      ]
+    },
+    {
+      "id": "GCU_EV_EXIT2",
+      "source": "GCU_EXIT2_EV_G1",
+      "target": "GCU_EXIT2_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2146048",
+      "instruction": "2번 출입구 엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT2_TAEPYEONG",
+        "GCU_ROUTE_EXIT2_BOKJEONG"
+      ]
+    },
+
+    {
+      "id": "GCU_WALK_EXIT45_EV",
+      "source": "GCU_EXIT_45",
+      "target": "GCU_EXIT45_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "4/5번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT45_TAEPYEONG",
+        "GCU_ROUTE_EXIT45_BOKJEONG"
+      ]
+    },
+    {
+      "id": "GCU_EV_EXIT45",
+      "source": "GCU_EXIT45_EV_G1",
+      "target": "GCU_EXIT45_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2146049",
+      "instruction": "4/5번 출입구 엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT45_TAEPYEONG",
+        "GCU_ROUTE_EXIT45_BOKJEONG"
+      ]
+    },
+
+    {
+      "id": "GCU_WALK_EXIT2_TAEPYEONG_EV",
+      "source": "GCU_EXIT2_EV_B1",
+      "target": "GCU_TAEPYEONG_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "개집표기를 통과해 태평방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT2_TAEPYEONG"
+      ]
+    },
+    {
+      "id": "GCU_WALK_EXIT45_TAEPYEONG_EV",
+      "source": "GCU_EXIT45_EV_B1",
+      "target": "GCU_TAEPYEONG_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "개집표기를 통과해 태평방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT45_TAEPYEONG"
+      ]
+    },
+    {
+      "id": "GCU_EV_TAEPYEONG",
+      "source": "GCU_TAEPYEONG_EV_B1",
+      "target": "GCU_TAEPYEONG_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2051156",
+      "instruction": "태평방면 엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT2_TAEPYEONG",
+        "GCU_ROUTE_EXIT45_TAEPYEONG"
+      ]
+    },
+    {
+      "id": "GCU_WALK_TAEPYEONG_PLATFORM",
+      "source": "GCU_TAEPYEONG_EV_B2",
+      "target": "GCU_PLATFORM_TAEPYEONG",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "태평방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT2_TAEPYEONG",
+        "GCU_ROUTE_EXIT45_TAEPYEONG"
+      ]
+    },
+
+    {
+      "id": "GCU_WALK_EXIT2_BOKJEONG_EV",
+      "source": "GCU_EXIT2_EV_B1",
+      "target": "GCU_BOKJEONG_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "개집표기를 통과해 복정방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT2_BOKJEONG"
+      ]
+    },
+    {
+      "id": "GCU_WALK_EXIT45_BOKJEONG_EV",
+      "source": "GCU_EXIT45_EV_B1",
+      "target": "GCU_BOKJEONG_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "개집표기를 통과해 복정방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT45_BOKJEONG"
+      ]
+    },
+    {
+      "id": "GCU_EV_BOKJEONG",
+      "source": "GCU_BOKJEONG_EV_B1",
+      "target": "GCU_BOKJEONG_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2051157",
+      "instruction": "복정방면 엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT2_BOKJEONG",
+        "GCU_ROUTE_EXIT45_BOKJEONG"
+      ]
+    },
+    {
+      "id": "GCU_WALK_BOKJEONG_PLATFORM",
+      "source": "GCU_BOKJEONG_EV_B2",
+      "target": "GCU_PLATFORM_BOKJEONG",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "복정방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "GCU_ROUTE_EXIT2_BOKJEONG",
+        "GCU_ROUTE_EXIT45_BOKJEONG"
+      ]
+    }
+  ]
+}

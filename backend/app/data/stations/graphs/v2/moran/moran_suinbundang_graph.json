@@ -1,0 +1,151 @@
+{
+  "station_code": "MOR_SB",
+  "station_name": "모란역 (수인분당선)",
+  "line": "SUIN_BUNDANG",
+  "parent_station_code": "MOR",
+  "segment": "SUIN_BUNDANG",
+  "format_reference": "모란역 통합 그래프(moran_station_graph.json)를 노선별로 분리한 수인분당선 세그먼트",
+  "interfaces": [
+    {
+      "node_id": "MOR_SB_CONCOURSE_B1",
+      "role": "수인분당선-환승간선 경계 노드 (수인분당선 대합실, 직결 경로)",
+      "connects_to_file": "moran_transfer_trunk_graph.json",
+      "connects_to_node": "MOR_TRANSFER_PASSAGE_B1"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "MOR_SB_CONCOURSE_B1",
+      "name": "수인분당선 대합실",
+      "floor": "B1",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_SB_YATAP_EV_B1",
+      "name": "수인분당선 야탑 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_SB_YATAP_EV_B2",
+      "name": "수인분당선 야탑 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_SB_PLATFORM_YATAP",
+      "name": "수인분당선 야탑 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_SB_TAEPYEONG_EV_B1",
+      "name": "수인분당선 태평 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_SB_TAEPYEONG_EV_B2",
+      "name": "수인분당선 태평 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_SB_PLATFORM_TAEPYEONG",
+      "name": "수인분당선 태평 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "MOR_WALK_SBCONCOURSE_YATAPEV",
+      "source": "MOR_SB_CONCOURSE_B1",
+      "target": "MOR_SB_YATAP_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "분당선 야탑 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_EV_YATAP",
+      "source": "MOR_SB_YATAP_EV_B1",
+      "target": "MOR_SB_YATAP_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2050879",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_YATAPEV_PLATFORM",
+      "source": "MOR_SB_YATAP_EV_B2",
+      "target": "MOR_SB_PLATFORM_YATAP",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "분당선 야탑 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_SBCONCOURSE_TAEPYEONGEV",
+      "source": "MOR_SB_CONCOURSE_B1",
+      "target": "MOR_SB_TAEPYEONG_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "분당선 태평 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_EV_TAEPYEONG",
+      "source": "MOR_SB_TAEPYEONG_EV_B1",
+      "target": "MOR_SB_TAEPYEONG_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2050878",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_TAEPYEONGEV_PLATFORM",
+      "source": "MOR_SB_TAEPYEONG_EV_B2",
+      "target": "MOR_SB_PLATFORM_TAEPYEONG",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "분당선 태평 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_TAEPYEONGPLATFORM_EV",
+      "source": "MOR_SB_PLATFORM_TAEPYEONG",
+      "target": "MOR_SB_TAEPYEONG_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "분당선 태평 방면 승강장 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    }
+
+  ],
+  "notes": [
+    "수인분당선측 1·2·4·5·7번 출입구 엘리베이터/에스컬레이터, 3·8번 출입구 휠체어리프트는 상세 경로 자료가 없어 이번 세그먼트에 포함하지 않았습니다.",
+    "8호선으로 이동하려면 MOR_SB_CONCOURSE_B1 또는 MOR_SB_EXIT18_PASSAGE_B1 노드에서 환승간선 그래프(moran_transfer_trunk_graph.json)로 이어집니다."
+  ]
+}

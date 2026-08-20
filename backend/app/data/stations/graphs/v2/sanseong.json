@@ -1,0 +1,247 @@
+{
+  "station_code": "SNS",
+  "station_name": "산성역",
+  "line": "LINE8",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "SNS_EXIT_3",
+      "name": "3번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SNS_EXIT3_EV_G1",
+      "name": "3번 출입구 옆 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNS_EXIT3_EV_B1",
+      "name": "3번 출입구 옆 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SNS_CONCOURSE_EV_B1",
+      "name": "대합실 경사 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNS_CONCOURSE_EV_B2",
+      "name": "대합실 경사 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SNS_NAMWIRYE_EV_B2",
+      "name": "남위례 방면 경사 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNS_NAMWIRYE_EV_B3",
+      "name": "남위례 방면 승강장 경사 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNS_PLATFORM_NAMWIRYE",
+      "name": "남위례 방면 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SNS_NAMHANSANSEONG_EV_B2",
+      "name": "남한산성입구 방면 경사 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNS_NAMHANSANSEONG_EV_B3",
+      "name": "남한산성입구 방면 승강장 경사 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNS_PLATFORM_NAMHANSANSEONG",
+      "name": "남한산성입구 방면 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "SNS_WALK_EXIT3_EV",
+      "source": "SNS_EXIT_3",
+      "target": "SNS_EXIT3_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "3번 출입구에서 3번 출입구 옆 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMWIRYE",
+        "SNS_ROUTE_EXIT3_NAMHANSANSEONG"
+      ]
+    },
+
+    {
+      "id": "SNS_EV_EXIT3",
+      "source": "SNS_EXIT3_EV_G1",
+      "target": "SNS_EXIT3_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2075288",
+      "instruction": "3번 출입구 옆 엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMWIRYE",
+        "SNS_ROUTE_EXIT3_NAMHANSANSEONG"
+      ]
+    },
+
+    {
+      "id": "SNS_WALK_EXIT3_CONCOURSE_EV",
+      "source": "SNS_EXIT3_EV_B1",
+      "target": "SNS_CONCOURSE_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 1층 대합실을 지나 표 내는 곳을 통과한 후 경사 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMWIRYE",
+        "SNS_ROUTE_EXIT3_NAMHANSANSEONG"
+      ]
+    },
+
+    {
+      "id": "SNS_EV_CONCOURSE",
+      "source": "SNS_CONCOURSE_EV_B1",
+      "target": "SNS_CONCOURSE_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2276758",
+      "instruction": "경사 엘리베이터를 이용해 지하 2층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMWIRYE",
+        "SNS_ROUTE_EXIT3_NAMHANSANSEONG"
+      ]
+    },
+
+    {
+      "id": "SNS_WALK_CONCOURSE_NAMWIRYE_EV",
+      "source": "SNS_CONCOURSE_EV_B2",
+      "target": "SNS_NAMWIRYE_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 2층 대합실에서 남위례 방면 경사 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMWIRYE"
+      ]
+    },
+
+    {
+      "id": "SNS_EV_NAMWIRYE",
+      "source": "SNS_NAMWIRYE_EV_B2",
+      "target": "SNS_NAMWIRYE_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2024722",
+      "instruction": "남위례 방면 경사 엘리베이터를 이용해 지하 3층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMWIRYE"
+      ]
+    },
+
+    {
+      "id": "SNS_WALK_NAMWIRYE_PLATFORM",
+      "source": "SNS_NAMWIRYE_EV_B3",
+      "target": "SNS_PLATFORM_NAMWIRYE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "남위례 방면 승강장으로 이동 후 승차 (휠체어칸)",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMWIRYE"
+      ]
+    },
+
+    {
+      "id": "SNS_WALK_CONCOURSE_NAMHANSANSEONG_EV",
+      "source": "SNS_CONCOURSE_EV_B2",
+      "target": "SNS_NAMHANSANSEONG_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 2층 대합실에서 남한산성입구 방면 경사 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMHANSANSEONG"
+      ]
+    },
+
+    {
+      "id": "SNS_EV_NAMHANSANSEONG",
+      "source": "SNS_NAMHANSANSEONG_EV_B2",
+      "target": "SNS_NAMHANSANSEONG_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2024723",
+      "instruction": "남한산성입구 방면 경사 엘리베이터를 이용해 지하 3층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMHANSANSEONG"
+      ]
+    },
+
+    {
+      "id": "SNS_WALK_NAMHANSANSEONG_PLATFORM",
+      "source": "SNS_NAMHANSANSEONG_EV_B3",
+      "target": "SNS_PLATFORM_NAMHANSANSEONG",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "남한산성입구 방면 승강장으로 이동 후 승차 (휠체어칸)",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNS_ROUTE_EXIT3_NAMHANSANSEONG"
+      ]
+    }
+  ]
+}

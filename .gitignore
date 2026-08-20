@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+.venv/
+backend/.venv/
+
+# Environment
+.env
+backend/.env
+
+# IDE
+.idea/
+# Local database / uploaded report images
+backend/*.db
+backend/static/uploads/reports/*
+!backend/static/uploads/reports/.gitkeep

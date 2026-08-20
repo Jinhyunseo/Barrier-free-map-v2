@@ -1,0 +1,302 @@
+{
+  "station_code": "IMA_TRANSFER",
+  "station_name": "이매역 (환승간선: 수인분당선 ↔ 경강선)",
+  "line": "TRANSFER_TRUNK",
+  "parent_station_code": "IMA",
+  "segment": "TRANSFER_TRUNK",
+  "format_reference": "모란역 환승간선 그래프(moran_transfer_trunk_graph.json)와 동일한 포맷 — 경계 노드는 각 노선 파일과 동일한 id를 그대로 사용하며 external=true로 표시됩니다.",
+  "sources": [
+    "이매역 환승 안내도 1매 (수인분당선측 3D 단면도: 맞이방 B1 → 수인분당선 서현 방면(왕십리·청량리 방면) 승강장 B2, ①~⑥ 경로 표기)",
+    "이매역 현장 안내판 사진 1매 ('현위치' 표시, 경강선 판교행 승강장(지하3층)에서 '분당선 갈아타는 곳(지하2층)' 및 '경강선 타는 곳(지하3층)' 방향 안내)"
+  ],
+  "nodes": [
+    {
+      "id": "IMA_SB_CONCOURSE",
+      "name": "수인분당 대합실",
+      "floor": "B1",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "defined_in": "imae_suinbundang_graph.json"
+    },
+    {
+      "id": "IMA_PLATFORM_YATAP",
+      "name": "야탑 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "defined_in": "imae_suinbundang_graph.json"
+    },
+    {
+      "id": "IMA_PLATFORM_SEOHYEON",
+      "name": "서현 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "defined_in": "imae_suinbundang_graph.json"
+    },
+    {
+      "id": "IMA_GG_PLATFORM_PANGYO",
+      "name": "판교 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "defined_in": "imae_gyeonggang_graph.json"
+    },
+    {
+      "id": "IMA_GG_PLATFORM_SAMDONG",
+      "name": "삼동 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "defined_in": "imae_gyeonggang_graph.json"
+    },
+    {
+      "id": "IMA_GG_CONCOURSE",
+      "name": "경강 대합실",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "defined_in": "imae_gyeonggang_graph.json"
+    },
+    {
+      "id": "IMA_SAMDONG_SEOHYEON_EV_B2",
+      "name": "삼동-서현 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_SAMDONG_SEOHYEON_EV_B3",
+      "name": "삼동-서현 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_SAMDONG_YATAP_EV_B2",
+      "name": "삼동-야탑 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_SAMDONG_YATAP_EV_B3",
+      "name": "삼동-야탑 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_PANGYO_SEOHYEON_EV_B2",
+      "name": "판교-서현 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_PANGYO_SEOHYEON_EV_B3",
+      "name": "판교-서현 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_PANGYO_YATAP_EV_B2",
+      "name": "판교-야탑 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_PANGYO_YATAP_EV_B3",
+      "name": "판교-야탑 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_SB_EV_B1",
+      "name": "경강-수인분당 대합실 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_SB_EV_B2",
+      "name": "경강-수인분당 대합실 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "IMA_WALK_GGCONCOURSE_GGSB_EV_B2",
+      "source": "IMA_GG_CONCOURSE",
+      "target": "IMA_GG_SB_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "경강 대합실에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_EV_GGSB",
+      "source": "IMA_GG_SB_EV_B2",
+      "target": "IMA_GG_SB_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2155252",
+      "instruction": "엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_GGSB_EV_B2_SBCONCOURSE",
+      "source": "IMA_GG_SB_EV_B1",
+      "target": "IMA_SB_CONCOURSE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "엘리베이터에서 분당 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_WALK_SAMDONG_SEOHYEON_EV_B3",
+      "source": "IMA_GG_PLATFORM_SAMDONG",
+      "target": "IMA_SAMDONG_SEOHYEON_EV_B3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "삼동 방향 승강장에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_EV_SAMDONG_SEOHYEON",
+      "source": "IMA_SAMDONG_SEOHYEON_EV_B3",
+      "target": "IMA_SAMDONG_SEOHYEON_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2155251",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_SAMDONG_SEOHYEON_EV_B2",
+      "source": "IMA_SAMDONG_SEOHYEON_EV_B2",
+      "target": "IMA_PLATFORM_SEOHYEON",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "서현 방향 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_WALK_SAMDONG_YATAP_EV_B3",
+      "source": "IMA_GG_PLATFORM_SAMDONG",
+      "target": "IMA_SAMDONG_YATAP_EV_B3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "삼동 방향 승강장에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_EV_SAMDONG_YATAP",
+      "source": "IMA_SAMDONG_YATAP_EV_B3",
+      "target": "IMA_SAMDONG_YATAP_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2155250",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_SAMDONG_YATAP_EV_B2",
+      "source": "IMA_SAMDONG_YATAP_EV_B2",
+      "target": "IMA_PLATFORM_YATAP",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "야탑 방향 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_WALK_PANGYO_SEOHYEON_EV_B3",
+      "source": "IMA_GG_PLATFORM_PANGYO",
+      "target": "IMA_PANGYO_SEOHYEON_EV_B3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "판교 방향 승강장에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_EV_PANGYO_SEOHYEON",
+      "source": "IMA_PANGYO_SEOHYEON_EV_B3",
+      "target": "IMA_PANGYO_SEOHYEON_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2155253",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_PANGYO_SEOHYEON_EV_B2",
+      "source": "IMA_PANGYO_SEOHYEON_EV_B2",
+      "target": "IMA_PLATFORM_SEOHYEON",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "서현 방향 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_WALK_PANGYO_YATAP_EV_B3",
+      "source": "IMA_GG_PLATFORM_PANGYO",
+      "target": "IMA_PANGYO_YATAP_EV_B3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "판교 방향 승강장에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_EV_PANGYO_YATAP",
+      "source": "IMA_PANGYO_YATAP_EV_B3",
+      "target": "IMA_PANGYO_YATAP_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2155254",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_PANGYO_YATAP_EV_B2",
+      "source": "IMA_PANGYO_YATAP_EV_B2",
+      "target": "IMA_PLATFORM_YATAP",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "야탑 방향 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    }
+  ]
+}

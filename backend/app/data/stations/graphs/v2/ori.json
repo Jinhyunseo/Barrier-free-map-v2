@@ -1,0 +1,194 @@
+{
+  "station_code": "ORI",
+  "station_name": "오리역",
+  "line": "SUIN_BUNDANG",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "ORI_EXIT_6",
+      "name": "6번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "ORI_EXIT6_EV_G1",
+      "name": "6번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "ORI_EXIT6_EV_B1",
+      "name": "6번 출입구 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "ORI_JUKJEON_EV_B1",
+      "name": "죽전 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "ORI_JUKJEON_EV_B2",
+      "name": "죽전 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "ORI_PLATFORM_JUKJEON",
+      "name": "죽전 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "ORI_MIGEUM_EV_B1",
+      "name": "미금 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "ORI_MIGEUM_EV_B2",
+      "name": "미금 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "ORI_PLATFORM_MIGEUM",
+      "name": "미금 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "ORI_WALK_EXIT6_EV",
+      "source": "ORI_EXIT_6",
+      "target": "ORI_EXIT6_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "6번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "ORI_ROUTE_EXIT6_JUKJEON",
+        "ORI_ROUTE_EXIT6_MIGEUM"
+      ]
+    },
+    {
+      "id": "ORI_EV_EXIT6",
+      "source": "ORI_EXIT6_EV_G1",
+      "target": "ORI_EXIT6_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2056548",
+      "instruction": "6번 출입구 엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "ORI_ROUTE_EXIT6_JUKJEON",
+        "ORI_ROUTE_EXIT6_MIGEUM"
+      ]
+    },
+
+    {
+      "id": "ORI_WALK_EXIT6_JUKJEON_EV",
+      "source": "ORI_EXIT6_EV_B1",
+      "target": "ORI_JUKJEON_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "개집표기를 통과해 죽전 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "ORI_ROUTE_EXIT6_JUKJEON"
+      ]
+    },
+    {
+      "id": "ORI_EV_JUKJEON",
+      "source": "ORI_JUKJEON_EV_B1",
+      "target": "ORI_JUKJEON_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2056549",
+      "instruction": "죽전 방면 엘리베이터를 이용해 지하 2층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "ORI_ROUTE_EXIT6_JUKJEON"
+      ]
+    },
+    {
+      "id": "ORI_WALK_JUKJEON_PLATFORM",
+      "source": "ORI_JUKJEON_EV_B2",
+      "target": "ORI_PLATFORM_JUKJEON",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "죽전 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "ORI_ROUTE_EXIT6_JUKJEON"
+      ]
+    },
+
+    {
+      "id": "ORI_WALK_EXIT6_MIGEUM_EV",
+      "source": "ORI_EXIT6_EV_B1",
+      "target": "ORI_MIGEUM_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "개집표기를 통과해 미금 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "ORI_ROUTE_EXIT6_MIGEUM"
+      ]
+    },
+    {
+      "id": "ORI_EV_MIGEUM",
+      "source": "ORI_MIGEUM_EV_B1",
+      "target": "ORI_MIGEUM_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2056550",
+      "instruction": "미금 방면 엘리베이터를 이용해 지하 2층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "ORI_ROUTE_EXIT6_MIGEUM"
+      ]
+    },
+    {
+      "id": "ORI_WALK_MIGEUM_PLATFORM",
+      "source": "ORI_MIGEUM_EV_B2",
+      "target": "ORI_PLATFORM_MIGEUM",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "미금 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "ORI_ROUTE_EXIT6_MIGEUM"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "station_code": "DDG",
+  "station_name": "단대오거리역",
+  "line": "LINE8",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "DDG_EXIT_4",
+      "name": "4번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "DDG_EXIT4_EV_G1",
+      "name": "4번 출입구 옆 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "DDG_EXIT4_EV_B1",
+      "name": "4번 출입구 옆 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "DDG_NAMHANSANSEONG_EV_B1",
+      "name": "남한산성입구 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "DDG_NAMHANSANSEONG_EV_B3",
+      "name": "남한산성입구 방면 승강장 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "DDG_PLATFORM_NAMHANSANSEONG",
+      "name": "남한산성입구 방면 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "DDG_SINHEUNG_EV_B1",
+      "name": "신흥 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "DDG_SINHEUNG_EV_B3",
+      "name": "신흥 방면 승강장 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "DDG_PLATFORM_SINHEUNG",
+      "name": "신흥 방면 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "DDG_WALK_EXIT4_EV",
+      "source": "DDG_EXIT_4",
+      "target": "DDG_EXIT4_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "4번 출입구에서 4번 출입구 옆 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "DDG_ROUTE_EXIT4_NAMHANSANSEONG",
+        "DDG_ROUTE_EXIT4_SINHEUNG"
+      ]
+    },
+
+    {
+      "id": "DDG_EV_EXIT4",
+      "source": "DDG_EXIT4_EV_G1",
+      "target": "DDG_EXIT4_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2116588",
+      "instruction": "4번 출입구 옆 엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "DDG_ROUTE_EXIT4_NAMHANSANSEONG",
+        "DDG_ROUTE_EXIT4_SINHEUNG"
+      ]
+    },
+
+    {
+      "id": "DDG_WALK_EXIT4_NAMHANSANSEONG_EV",
+      "source": "DDG_EXIT4_EV_B1",
+      "target": "DDG_NAMHANSANSEONG_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 1층 대합실에서 남한산성입구 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "DDG_ROUTE_EXIT4_NAMHANSANSEONG"
+      ]
+    },
+
+    {
+      "id": "DDG_EV_NAMHANSANSEONG",
+      "source": "DDG_NAMHANSANSEONG_EV_B1",
+      "target": "DDG_NAMHANSANSEONG_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2116586",
+      "instruction": "남한산성입구 방면 엘리베이터를 이용해 지하 3층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "DDG_ROUTE_EXIT4_NAMHANSANSEONG"
+      ]
+    },
+
+    {
+      "id": "DDG_WALK_NAMHANSANSEONG_PLATFORM",
+      "source": "DDG_NAMHANSANSEONG_EV_B3",
+      "target": "DDG_PLATFORM_NAMHANSANSEONG",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "남한산성입구 방면 승강장으로 이동 후 승차",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "DDG_ROUTE_EXIT4_NAMHANSANSEONG"
+      ]
+    },
+
+    {
+      "id": "DDG_WALK_EXIT4_SINHEUNG_EV",
+      "source": "DDG_EXIT4_EV_B1",
+      "target": "DDG_SINHEUNG_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 1층 대합실에서 신흥 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "DDG_ROUTE_EXIT4_SINHEUNG"
+      ]
+    },
+
+    {
+      "id": "DDG_EV_SINHEUNG",
+      "source": "DDG_SINHEUNG_EV_B1",
+      "target": "DDG_SINHEUNG_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2116587",
+      "instruction": "신흥 방면 엘리베이터를 이용해 지하 3층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "DDG_ROUTE_EXIT4_SINHEUNG"
+      ]
+    },
+
+    {
+      "id": "DDG_WALK_SINHEUNG_PLATFORM",
+      "source": "DDG_SINHEUNG_EV_B3",
+      "target": "DDG_PLATFORM_SINHEUNG",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "신흥 방면 승강장으로 이동 후 승차",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "DDG_ROUTE_EXIT4_SINHEUNG"
+      ]
+    }
+  ]
+}

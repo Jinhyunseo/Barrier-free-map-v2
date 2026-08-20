@@ -1,0 +1,177 @@
+{
+  "station_code": "NHS",
+  "station_name": "남한산성입구역",
+  "line": "LINE8",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "NHS_EXIT_3",
+      "name": "3번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "NHS_EXIT3_EV_G1",
+      "name": "3번 출입구 옆 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NHS_EXIT3_EV_B2",
+      "name": "3번 출입구 옆 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NHS_EXIT3_EV_B3",
+      "name": "3번 출입구 옆 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "NHS_SANSEONG_EV_B2",
+      "name": "산성 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NHS_SANSEONG_EV_B3",
+      "name": "산성 방면 승강장 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NHS_PLATFORM_SANSEONG",
+      "name": "산성 방면 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "NHS_PLATFORM_DANDAE",
+      "name": "단대오거리 방면 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "NHS_WALK_EXIT3_EV",
+      "source": "NHS_EXIT_3",
+      "target": "NHS_EXIT3_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "3번 출입구에서 3번 출입구 옆 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NHS_ROUTE_EXIT3_SANSEONG",
+        "NHS_ROUTE_EXIT3_DANDAE"
+      ]
+    },
+
+    {
+      "id": "NHS_EV_EXIT3_G1_B2",
+      "source": "NHS_EXIT3_EV_G1",
+      "target": "NHS_EXIT3_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2231773",
+      "instruction": "3번 출입구 옆 엘리베이터를 이용해 지하 2층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NHS_ROUTE_EXIT3_SANSEONG"
+      ]
+    },
+
+    {
+      "id": "NHS_WALK_B2_SANSEONG_EV",
+      "source": "NHS_EXIT3_EV_B2",
+      "target": "NHS_SANSEONG_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 2층 대합실에서 표 내는 곳을 통과한 후 산성 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NHS_ROUTE_EXIT3_SANSEONG"
+      ]
+    },
+
+    {
+      "id": "NHS_EV_SANSEONG",
+      "source": "NHS_SANSEONG_EV_B2",
+      "target": "NHS_SANSEONG_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2022967",
+      "instruction": "산성 방면 엘리베이터를 이용해 지하 3층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NHS_ROUTE_EXIT3_SANSEONG"
+      ]
+    },
+
+    {
+      "id": "NHS_WALK_SANSEONG_PLATFORM",
+      "source": "NHS_SANSEONG_EV_B3",
+      "target": "NHS_PLATFORM_SANSEONG",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "산성 방면 승강장으로 이동 후 승차 (휠체어칸)",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NHS_ROUTE_EXIT3_SANSEONG"
+      ]
+    },
+
+    {
+      "id": "NHS_EV_EXIT3_G1_B3",
+      "source": "NHS_EXIT3_EV_G1",
+      "target": "NHS_EXIT3_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2231773",
+      "instruction": "3번 출입구 옆 엘리베이터를 이용해 지하 3층 단대오거리 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NHS_ROUTE_EXIT3_DANDAE"
+      ]
+    },
+
+    {
+      "id": "NHS_WALK_DANDAE_PLATFORM",
+      "source": "NHS_EXIT3_EV_B3",
+      "target": "NHS_PLATFORM_DANDAE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 단대오거리 방면 승강장으로 이동 후 승차 (휠체어칸)",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NHS_ROUTE_EXIT3_DANDAE"
+      ]
+    }
+  ]
+}

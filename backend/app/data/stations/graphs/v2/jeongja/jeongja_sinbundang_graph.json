@@ -1,0 +1,199 @@
+{
+  "station_code": "JJA_SD",
+  "station_name": "정자역 (신분당선)",
+  "line": "SINBUNDANG",
+  "parent_station_code": "JJA",
+  "segment": "SINBUNDANG",
+  "format_reference": "이매역/모란역 노선별 분리 그래프와 동일한 포맷 — 정자역의 각 노선을 독립된 파일로 유지합니다.",
+  "interfaces": [
+    {
+      "node_id": "JJA_SD_CONCOURSE_B3",
+      "role": "신분당선 대합실",
+      "connects_to_file": "jeongja_transfer_trunk_graph.json",
+      "connects_to_node": ["JJA_SBMIGEUM_SD_EV_B3", "JJA_SBSUNAE_SD_EV_B3"]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "JJA_SD_EXIT_6",
+      "name": "6번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SD_EXIT_6_EV_G1",
+      "name": "6번 출입구 옆 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SD_EXIT_6_EV_B3",
+      "name": "6번 출입구 옆 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SD_CONCOURSE_B3",
+      "name": "신분당선 대합실 (표 내는 곳)",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SD_PANGYO_EV_B3",
+      "name": "판교 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SD_PANGYO_EV_B4",
+      "name": "판교 방면 승강장 엘리베이터",
+      "floor": "B4",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SD_PLATFORM_PANGYO",
+      "name": "판교 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B4",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SD_MIGEUM_EV_B3",
+      "name": "미금 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SD_MIGEUM_EV_B4",
+      "name": "미금 방면 승강장 엘리베이터",
+      "floor": "B4",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SD_PLATFORM_MIGEUM",
+      "name": "미금 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B4",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "JJA_SD_WALK_EXIT6_EV",
+      "source": "JJA_SD_EXIT_6",
+      "target": "JJA_SD_EXIT_6_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "6번 출입구 옆 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_SD_EV_EXIT6",
+      "source": "JJA_SD_EXIT_6_EV_G1",
+      "target": "JJA_SD_EXIT_6_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2051672",
+      "instruction": "엘리베이터를 이용해 지하 3층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "JJA_SD_WALK_EV_CONCOURSE",
+      "source": "JJA_SD_EXIT_6_EV_B3",
+      "target": "JJA_SD_CONCOURSE_B3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "대합실로 이동 후 표 내는 곳을 통과",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_SD_WALK_CONCOURSE_PANGYOEV",
+      "source": "JJA_SD_CONCOURSE_B3",
+      "target": "JJA_SD_PANGYO_EV_B3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "판교 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_SD_EV_PANGYO",
+      "source": "JJA_SD_PANGYO_EV_B3",
+      "target": "JJA_SD_PANGYO_EV_B4",
+      "mode": "ELEVATOR",
+      "facility_id": "2051673",
+      "instruction": "엘리베이터를 이용해 지하 4층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "JJA_SD_WALK_PANGYO_PLATFORM",
+      "source": "JJA_SD_PANGYO_EV_B4",
+      "target": "JJA_SD_PLATFORM_PANGYO",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "판교 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_SD_WALK_CONCOURSE_MIGEUMEV",
+      "source": "JJA_SD_CONCOURSE_B3",
+      "target": "JJA_SD_MIGEUM_EV_B3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "미금 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_SD_EV_MIGEUM",
+      "source": "JJA_SD_MIGEUM_EV_B3",
+      "target": "JJA_SD_MIGEUM_EV_B4",
+      "mode": "ELEVATOR",
+      "facility_id": "2051674",
+      "instruction": "엘리베이터를 이용해 지하 4층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "JJA_SD_WALK_MIGEUM_PLATFORM",
+      "source": "JJA_SD_MIGEUM_EV_B4",
+      "target": "JJA_SD_PLATFORM_MIGEUM",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "미금 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    }
+  ],
+  "notes": [
+    "역 안내도 2매(6번 출입구 옆 엘리베이터 → 판교/미금 방면)와 승강기_전체통합.json(정자역·신분당선, 4312)을 기준으로 작성했습니다.",
+    "6번 출입구 엘리베이터=2051672(1F↔B2, 비운임구역 대합실 표내는 곳 방향), 판교 방면 엘리베이터=2051673(B2 운임구역 대합실 표내는 곳↔B3 판교역 방향 3-4 출입문), 미금 방면 엘리베이터=2051674(B2 운임구역 대합실 표내는 곳↔B3 미금역 방향 4-1 출입문)로 매칭했습니다(모두 2026-08-16 19:36 기준 운행중).",
+    "6번 출입구 엘리베이터는 지상(1F)에서 곧바로 지하 2층 대합실로 연결되며(수인분당선측과 달리 지하 1층을 거치지 않음), 대합실에서 표 내는 곳(개집표기)을 통과해야 판교/미금 방면 승강장용 엘리베이터를 이용할 수 있습니다.",
+    "이 파일은 같은 역의 수인분당선 그래프(jeongja_suinbundang_graph.json)와 별개의 노선 세그먼트입니다. 두 파일 간 환승 통로는 jeongja_transfer_trunk_graph.json에서 별도로 연결됩니다.",
+    "1번·2번·4번·5번 출입구측 엘리베이터/에스컬레이터 상세 경로는 이번 안내도 2매에 포함되지 않아 이 그래프에는 반영하지 않았습니다."
+  ]
+}

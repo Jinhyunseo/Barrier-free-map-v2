@@ -1,0 +1,337 @@
+{
+  "station_code": "MIG_SB",
+  "station_name": "미금역 (수인분당선)",
+  "line": "SUIN_BUNDANG",
+  "parent_station_code": "MIG",
+  "segment": "SUIN_BUNDANG",
+  "format_reference": "정자역/이매역/모란역 노선별 분리 그래프와 동일한 포맷 — 미금역의 각 노선을 독립된 파일로 유지합니다.",
+  "nodes": [
+    {
+      "id": "MIG_SBSD_EXIT_4",
+      "name": "4번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SBSD_EXIT_6",
+      "name": "6번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SBSD_ENTRANCE_4_EV_G1",
+      "name": "4번 출입구 앞 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SBSD_ENTRANCE_6_EV_G1",
+      "name": "6번 출입구 인근 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SBSD_ENTRANCE_4_EV_B1",
+      "name": "4번 출입구 앞 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SBSD_ENTRANCE_6_EV_B1",
+      "name": "6번 출입구 인근 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SB_CONCOURSE_B1",
+      "name": "대합실",
+      "floor": "B1",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SB_JEONGJA_EV_B1",
+      "name": "정자 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SB_JEONGJA_EV_B2",
+      "name": "정자 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SBSD_JEONGJA_EV_B1",
+      "name": "정자 방면 엘리베이터(SD+SB)",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SBSD_JEONGJA_EV_B2",
+      "name": "정자 방면 엘리베이터(SD+SB)",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SB_PLATFORM_JEONGJA",
+      "name": "정자 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SBSD_ORIDONGCHEON_EV_B1",
+      "name": "오리, 동천 방면 엘리베이터(SD+SB)",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SBSD_ORIDONGCHEON_EV_B2",
+      "name": "오리, 동천 방면 승강장 엘리베이터(SD+SB)",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SB_ORI_EV_B1",
+      "name": "오리 방면 승강장 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SB_ORI_EV_B2",
+      "name": "오리 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MIG_SB_PLATFORM_ORI",
+      "name": "오리 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "MIG_SBSD_WALK_EXIT4_EV",
+      "source": "MIG_SBSD_EXIT_4",
+      "target": "MIG_SBSD_ENTRANCE_4_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "4번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SBSD_WALK_EXIT6_EV",
+      "source": "MIG_SBSD_EXIT_6",
+      "target": "MIG_SBSD_ENTRANCE_6_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "6번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_EV_ENTRANCE4",
+      "source": "MIG_SBSD_ENTRANCE_4_EV_G1",
+      "target": "MIG_SBSD_ENTRANCE_4_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2056582",
+      "instruction": "엘리베이터를 이용해 지하 1층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "MIG_SB_EV_ENTRANCE6",
+      "source": "MIG_SBSD_ENTRANCE_6_EV_G1",
+      "target": "MIG_SBSD_ENTRANCE_6_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2195144",
+      "instruction": "엘리베이터를 이용해 지하 1층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "MIG_SB_WALK_EV4_CONCOURSE",
+      "source": "MIG_SBSD_ENTRANCE_4_EV_B1",
+      "target": "MIG_SB_CONCOURSE_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_WALK_EV6_CONCOURSE",
+      "source": "MIG_SBSD_ENTRANCE_6_EV_B1",
+      "target": "MIG_SB_CONCOURSE_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_WALK_CONCOURSE_SBJEONGJAEV",
+      "source": "MIG_SB_CONCOURSE_B1",
+      "target": "MIG_SB_JEONGJA_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 정자 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_EV_SBJEONGJA",
+      "source": "MIG_SB_JEONGJA_EV_B1",
+      "target": "MIG_SB_JEONGJA_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2056584",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "MIG_SB_WALK_SBJEONGJA_PLATFORM",
+      "source": "MIG_SB_JEONGJA_EV_B2",
+      "target": "MIG_SB_PLATFORM_JEONGJA",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "정자 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_WALK_CONCOURSE_SBSDJEONGJAEV",
+      "source": "MIG_SB_CONCOURSE_B1",
+      "target": "MIG_SBSD_JEONGJA_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 정자 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_EV_SBSDJEONGJA",
+      "source": "MIG_SBSD_JEONGJA_EV_B1",
+      "target": "MIG_SBSD_JEONGJA_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2195141",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "MIG_SB_WALK_SBSDJEONGJA_PLATFORM",
+      "source": "MIG_SBSD_JEONGJA_EV_B2",
+      "target": "MIG_SB_PLATFORM_JEONGJA",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "정자 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_WALK_CONCOURSE_SBORIEV",
+      "source": "MIG_SB_CONCOURSE_B1",
+      "target": "MIG_SB_ORI_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 오리 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_EV_SBORI",
+      "source": "MIG_SB_ORI_EV_B1",
+      "target": "MIG_SB_ORI_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2056583",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "MIG_SB_WALK_SBORI_PLATFORM",
+      "source": "MIG_SB_ORI_EV_B2",
+      "target": "MIG_SB_PLATFORM_ORI",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "오리 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_WALK_CONCOURSE_SBSDORIEV",
+      "source": "MIG_SB_CONCOURSE_B1",
+      "target": "MIG_SBSD_ORIDONGCHEON_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 오리 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_EV_SBSDORI",
+      "source": "MIG_SBSD_ORIDONGCHEON_EV_B1",
+      "target": "MIG_SBSD_ORIDONGCHEON_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2195140",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MIG_SB_WALK_SBSDORI_PLATFORM",
+      "source": "MIG_SBSD_ORIDONGCHEON_EV_B2",
+      "target": "MIG_SB_PLATFORM_ORI",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "오리 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    }
+  ],
+  "notes": [
+    "역 안내도 4매(4·6번 출입구 각각 → 정자/오리 방면)와 승강기_전체통합.json(미금역·수인분당선, K231)을 기준으로 작성했습니다.",
+    "4번 출입구 앞 엘리베이터=2056582(1F↔B1, exit_no 4로 등록), 정자 방면 엘리베이터=2056584(B1 맞이방 북쪽 표내는 곳 내 계단 옆↔B2 정자 방향 승강장 2-1 출입문 앞), 오리 방면 엘리베이터=2056583(B1 맞이방 북쪽 표내는 곳 내 계단 옆↔B2 오리 방향 승강장 5-4 출입문 앞)로 매칭했습니다(모두 2026-08-16 19:36 기준 운행중).",
+    "6번 출입구에는 자체 엘리베이터가 없고 에스컬레이터(3818327/3818328)만 있어, 6번 출입구 경로도 4번 출입구 앞 엘리베이터(2056582)를 공유하는 것으로 반영했습니다 — 이 역의 승강기 목록에는 지상↔지하1층 구간 엘리베이터가 이 1대뿐입니다.",
+    "신분당선측(migeum_sinbundang_graph.json)과 달리 이 노선은 대합실(B1)에서 승강장(B2)까지 엘리베이터 1회로 연결되는 구조입니다.",
+    "이 파일은 같은 역의 신분당선 그래프(migeum_sinbundang_graph.json)와 별개의 노선 세그먼트입니다. 두 노선 간 환승 통로는 migeum_transfer_trunk_graph.json에서 별도로 연결됩니다(상단 interfaces_note 참고)."
+  ]
+}

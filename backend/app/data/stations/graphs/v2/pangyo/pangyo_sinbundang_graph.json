@@ -1,0 +1,283 @@
+{
+  "station_code": "PYO_SD",
+  "station_name": "판교역 (신분당선)",
+  "line": "SINBUNDANG",
+  "parent_station_code": "PYO",
+  "segment": "SINBUNDANG",
+  "format_reference": "정자역/미금역 노선별 분리 그래프(jeongja_sinbundang_graph.json / migeum_sinbundang_graph.json)와 동일한 포맷 — 판교역의 각 노선을 독립된 파일로 유지합니다.",
+  "nodes": [
+    {
+      "id": "PYO_GGSD_EXIT_1",
+      "name": "1번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_GGSD_EXIT_1_EV_G1",
+      "name": "1번 출입구 근처 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_GGSD_EXIT_1_EV_B1",
+      "name": "1번 출입구 근처 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null,
+      "note": "지하 1층 환승주차장을 경유합니다."
+    },
+    {
+      "id": "PYO_GGSD_EXIT_1_EV_B2",
+      "name": "1번 출입구 근처 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_GGSD_EXIT_3",
+      "name": "3번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_GGSD_EXIT_3_EV_G1",
+      "name": "3번 출입구 근처 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_GGSD_EXIT_3_EV_B1",
+      "name": "3번 출입구 근처 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null,
+      "note": "지하 1층 환승주차장을 경유합니다."
+    },
+    {
+      "id": "PYO_GGSD_EXIT_3_EV_B2",
+      "name": "3번 출입구 근처 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_GGSD_CONCOURSE_B2",
+      "name": "판교역 대합실",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_SD_JEONGJA_EV_B2",
+      "name": "정자 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_SD_JEONGJA_EV_B3",
+      "name": "정자 방면 승강장 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_SD_PLATFORM_JEONGJA",
+      "name": "정자 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_SD_CHEONGGYESAN_EV_B2",
+      "name": "청계산입구 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_SD_CHEONGGYESAN_EV_B3",
+      "name": "청계산입구 방면 승강장 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "PYO_SD_PLATFORM_CHEONGGYESAN",
+      "name": "청계산입구 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+     {
+      "id": "PYO_GGSD_WALK_EXIT1_EV",
+      "source": "PYO_GGSD_EXIT_1",
+      "target": "PYO_GGSD_EXIT_1_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "1번 출입구 근처 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "PYO_GGSD_EV_EXIT1_1",
+      "source": "PYO_GGSD_EXIT_1_EV_G1",
+      "target": "PYO_GGSD_EXIT_1_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2051683",
+      "instruction": "엘리베이터를 이용해 지하 1층 환승주차장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "PYO_GGSD_EV_EXIT1_2",
+      "source": "PYO_GGSD_EXIT_1_EV_B1",
+      "target": "PYO_GGSD_EXIT_1_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2051683",
+      "instruction": "동일한 엘리베이터로 계속 이동해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "PYO_GGSD_WALK_EXIT1EV_CONCOURSE",
+      "source": "PYO_GGSD_EXIT_1_EV_B2",
+      "target": "PYO_GGSD_CONCOURSE_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "PYO_GGSD_WALK_EXIT3_EV",
+      "source": "PYO_GGSD_EXIT_3",
+      "target": "PYO_GGSD_EXIT_3_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "3번 출입구 근처 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "PYO_GGSD_EV_EXIT3_1",
+      "source": "PYO_GGSD_EXIT_3_EV_G1",
+      "target": "PYO_GGSD_EXIT_3_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2051684",
+      "instruction": "엘리베이터를 이용해 지하 1층 환승주차장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "PYO_GGSD_EV_EXIT3_2",
+      "source": "PYO_GGSD_EXIT_3_EV_B1",
+      "target": "PYO_GGSD_EXIT_3_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2051684",
+      "instruction": "동일한 엘리베이터로 계속 이동해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "PYO_GGSD_WALK_EXIT3EV_CONCOURSE",
+      "source": "PYO_GGSD_EXIT_3_EV_B2",
+      "target": "PYO_GGSD_CONCOURSE_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "PYO_SD_WALK_CONCOURSE_JEONGJAEV",
+      "source": "PYO_GGSD_CONCOURSE_B2",
+      "target": "PYO_SD_JEONGJA_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 정자 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "PYO_SD_EV_JEONGJA",
+      "source": "PYO_SD_JEONGJA_EV_B2",
+      "target": "PYO_SD_JEONGJA_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2051685",
+      "instruction": "엘리베이터를 이용해 지하 3층 정자 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "PYO_SD_WALK_JEONGJA_PLATFORM",
+      "source": "PYO_SD_JEONGJA_EV_B3",
+      "target": "PYO_SD_PLATFORM_JEONGJA",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "정자 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "PYO_SD_WALK_CONCOURSE_CHEONGGYESANEV",
+      "source": "PYO_GGSD_CONCOURSE_B2",
+      "target": "PYO_SD_CHEONGGYESAN_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 청계산입구 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "PYO_SD_EV_CHEONGGYESAN",
+      "source": "PYO_SD_CHEONGGYESAN_EV_B2",
+      "target": "PYO_SD_CHEONGGYESAN_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2051686",
+      "instruction": "엘리베이터를 이용해 지하 3층 청계산입구 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "PYO_SD_WALK_CHEONGGYESAN_PLATFORM",
+      "source": "PYO_SD_CHEONGGYESAN_EV_B3",
+      "target": "PYO_SD_PLATFORM_CHEONGGYESAN",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "청계산입구 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    }
+  ],
+  "notes": [
+    "역 안내도 4매(1번·3번 출입구 각각 → 정자/청계산입구 방면)와 승강기_전체통합.json(판교역·신분당선, 4311)을 기준으로 작성했습니다.",
+    "1번 출입구 옆 엘리베이터=2051683, 3번 출입구 옆 엘리베이터=2051684로 매칭했습니다. 두 엘리베이터 모두 '(1F) 출입구 근처(B1) 환승주차장(B2) 출입구 옆'의 3개 층을 정차하는 것으로 명시되어 있어, 지하 1층 환승주차장 정차를 노드로 반영하고 엘리베이터 구간도 G1→B1, B1→B2 두 엣지(동일 facility_id)로 나누어 표기했습니다. 이 두 엘리베이터는 pangyo_gyeonggang_graph.json에서도 동일한 물리적 엘리베이터로 사용됩니다(신분당선·경강선이 공유하는 출입구·환승주차장 구간).",
+    "정자 방면 엘리베이터=2051685('B2 표 내는 곳 내 청계산입구 방면 우측↔B3 정자 방면(하행) 승강장 5-4출입문 맞은편'), 청계산입구 방면 엘리베이터=2051686('B2 표 내는 곳 내 청계산입구 방면 좌측↔B3 청계산입구 방면(상행) 승강장 2-1출입문 맞은편')로 매칭했습니다. dtlLoc의 'B2 위치 설명'은 대합실 내 좌우 위치를 가리킬 뿐 목적지 방면과는 무관하며, 실제 도착 승강장(B3 설명)을 기준으로 방면을 판단했습니다(모두 2026-08-16 19:36 기준 운행중).",
+    "판교역의 대합실(B2)은 신분당선·경강선이 함께 사용하는 공간으로 보이나, 경강선측은 별도의 '경강선 개집표기'를 통과해야 한다고 안내도에 명시되어 있어(pangyo_gyeonggang_graph.json 참고) 두 노선의 표 내는 곳(개집표기) 자체는 구분된 것으로 보입니다. 이 파일의 PYO_SD_CONCOURSE_B2와 pangyo_gyeonggang_graph.json의 PYO_GG_CONCOURSE_B2가 물리적으로 동일한 대합실 공간을 가리키는지는 확인되지 않아 별도 노드로 유지했습니다.",
+    "이 파일은 같은 역의 경강선 그래프(pangyo_gyeonggang_graph.json)와 별개의 노선 세그먼트입니다. 두 노선 간 환승 통로는 pangyo_transfer_trunk_graph.json에서 별도로 연결됩니다(상단 interfaces_note 참고)."
+  ]
+}
