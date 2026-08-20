@@ -810,8 +810,60 @@
     .form-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
     .form-input { width: 100%; padding: 12px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 13.5px; outline: none; transition: all 0.2s; }
     .form-input:focus { border-color: #f39eba; box-shadow: 0 0 0 3px rgba(243, 158, 186, 0.2); }
-    .btn-action { width: 100%; padding: 14px; background: #f8ccdb; color: #000000; border: none; border-radius: 12px; font-weight: 800; font-size: 15px; cursor: pointer; box-shadow: 0 4px 10px rgba(243, 158, 186, 0.4); transition: all 0.2s; }
+    
+    /* 기본 액션 버튼 */
+    .btn-action { 
+      width: 100%; 
+      padding: 14px; 
+      background: #f8ccdb; 
+      color: #000000; 
+      border: none; 
+      border-radius: 12px; 
+      font-weight: 800; 
+      font-size: 15px; 
+      cursor: pointer; 
+      box-shadow: 0 4px 10px rgba(243, 158, 186, 0.4); 
+      transition: all 0.2s; 
+    }
     .btn-action:hover { background: #f39eba; color: #ffffff; }
+
+    /* 슬림한 모달 하단 버튼 스타일 (이동 조건 모달 전용) */
+    .btn-modal-slim {
+      flex: 1;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 800;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 42px;
+    }
+
+    .btn-modal-slim.cancel {
+      background: #e2e8f0;
+      color: #475569;
+    }
+
+    .btn-modal-slim.cancel:hover {
+      background: #cbd5e1;
+      color: #0f172a;
+    }
+
+    .btn-modal-slim.confirm {
+      background: #f8ccdb;
+      color: #000000;
+      box-shadow: 0 2px 6px rgba(243, 158, 186, 0.4);
+    }
+
+    .btn-modal-slim.confirm:hover {
+      background: #f39eba;
+      color: #ffffff;
+    }
+
     .checkbox-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
     .checkbox-label { font-size: 14px; font-weight: 700; color: #334155; display: flex; align-items: center; gap: 12px; cursor: pointer; padding: 12px 14px; border-radius: 10px; background: #f8fafc; border: 1.5px solid #e2e8f0; transition: all 0.2s; }
     .checkbox-label:hover { background: #fdf2f4; border-color: #f39eba; }
@@ -999,7 +1051,11 @@
         </label>
       </div>
 
-      <button class="btn-action" onclick="completeOnboarding()">설정 완료하고 길찾기 시작</button>
+      <!-- 슬림한 형태의 버튼 가로 정렬 -->
+      <div style="display: flex; gap: 10px;">
+        <button class="btn-modal-slim cancel" onclick="closeProfileModal()">취소</button>
+        <button class="btn-modal-slim confirm" onclick="completeOnboarding()">적용하기</button>
+      </div>
     </div>
   </div>
 
@@ -1201,6 +1257,10 @@
 
     function openProfileModal() {
       document.getElementById('profile-modal').style.display = 'flex';
+    }
+
+    function closeProfileModal() {
+      document.getElementById('profile-modal').style.display = 'none';
     }
 
     function completeOnboarding() {

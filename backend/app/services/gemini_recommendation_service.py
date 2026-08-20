@@ -21,11 +21,9 @@ logger = logging.getLogger(__name__)
 # 1. 모델 및 기본 설정
 # ==============================================================================
 
-# 💡 응답 속도가 가장 빠르고 안정적인 표준 모델 적용
 GEMINI_MODEL_NAME = "gemini-3.5-flash-lite"
 GEMINI_FALLBACK_MODEL_NAME = "gemini-3.5-flash"
 
-# 💡 단일 요청 타임아웃을 15초로 설정
 GEMINI_TIMEOUT_SECONDS = 15.0
 
 FALLBACK_RECOMMEND_REASON = "이동시간, 도보 거리, 환승 횟수를 종합적으로 고려하여 이 경로를 추천드립니다."
@@ -97,7 +95,9 @@ SYSTEM_INSTRUCTION = """\
 
 2. slope_warning (급경사 피하기 옵션을 켰는데도 경로에 급경사가 포함된 경우에만 표시되는 경고 팝업 문구)
    - 입력의 "slope_warning_needed" 값이 true일 때만 작성하고, false이면 반드시 null을 반환합니다.
-   - 다정하고 안심시키는 톤으로 실제 최대 경사도 수치를 자연스럽게 포함합니다. 최대 80자 내외.
+   - 다정하고 안심시키는 톤으로 작성하되, **반드시 입력받은 max_slope_percent 수치를 있는 그대로 적용하여 고대로 명시**해야 합니다.
+   - 절대로 예시 데이터의 숫자를 따라 쓰거나, 임의의 수치를 지어내지 마세요.
+   - 최대 80자 내외.
 
 반드시 아래 JSON 스키마로만 응답하세요.
 {"recommend_reason": string, "slope_warning": string | null}
@@ -173,12 +173,12 @@ def _build_few_shot_examples() -> list["genai_types.Content"]:
             "has_low_floor_bus": None,
             "has_steep_slope": True,
             "slope_warning_needed": True,
-            "max_slope_percent": 23.7,
-            "slope_spot_count": 3,
+            "max_slope_percent": 9.1,
+            "slope_spot_count": 2,
         },
         model_payload={
             "recommend_reason": "도보 거리가 가장 짧고 환승 없이 바로 이동할 수 있는 경로예요.",
-            "slope_warning": "이 근처는 지형상 완만한 길을 찾기 어려워요. 경사가 있는 구간(최대 23.7%)이 포함되어 있으니, 난간이나 벽을 짚으며 천천히 이동해주세요.",
+            "slope_warning": "급경사 피하기를 선택하셨지만 이 경로에는 최대 9.1%의 가파른 구간이 포함되어 있으니 이동하실 때 조심해 주세요.",
         },
     )
 
@@ -194,6 +194,8 @@ def _build_route_payload(
     slope_spot_count: int,
 ) -> dict[str, Any]:
     accessibility = route.get("accessibility", {}) or {}
+    
+    formatted_max_slope = round(max_slope_percent, 1) if max_slope_percent is not None else None
 
     return {
         "mobility_constraints": mobility_constraints,
@@ -207,7 +209,7 @@ def _build_route_payload(
         "low_floor_bus_numbers": accessibility.get("low_floor_bus_numbers") or [],
         "has_steep_slope": bool(slope_spot_count > 0),
         "slope_warning_needed": slope_warning_needed,
-        "max_slope_percent": max_slope_percent,
+        "max_slope_percent": formatted_max_slope,
         "slope_spot_count": slope_spot_count,
     }
 
@@ -225,9 +227,17 @@ async def generate_route_ai_text(
     slope_spot_count: int,
 ) -> dict[str, str | None]:
 
+    formatted_max_slope = round(max_slope_percent, 1) if max_slope_percent is not None else None
+    
+    dynamic_fallback_warning = (
+        f"급경사 피하기를 선택하셨지만 이 경로에는 최대 {formatted_max_slope}%의 가파른 구간이 포함되어 있으니 이동하실 때 조심해 주세요."
+        if formatted_max_slope is not None
+        else FALLBACK_SLOPE_WARNING
+    )
+
     fallback = {
         "recommend_reason": FALLBACK_RECOMMEND_REASON,
-        "slope_warning": FALLBACK_SLOPE_WARNING if slope_warning_needed else None,
+        "slope_warning": dynamic_fallback_warning if slope_warning_needed else None,
     }
 
     client = _get_client()
@@ -255,13 +265,12 @@ async def generate_route_ai_text(
             system_instruction=SYSTEM_INSTRUCTION,
             response_mime_type="application/json",
             response_schema=RouteAiText,
-            temperature=0.3,
+            temperature=0.2,
             max_output_tokens=300,
             http_options=genai_types.HttpOptions(timeout=int(GEMINI_TIMEOUT_SECONDS * 1000)),
         )
 
         response = None
-        # 1차 경량 모델 시도 -> 실패 시 2차 표준 모델 순차 시도
         for model_name in [GEMINI_MODEL_NAME, GEMINI_FALLBACK_MODEL_NAME]:
             try:
                 response = await client.aio.models.generate_content(
@@ -281,12 +290,10 @@ async def generate_route_ai_text(
         recommend_reason = None
         slope_warning = None
 
-        # SDK 자동 파싱 객체(response.parsed) 우선 읽기
         if hasattr(response, "parsed") and response.parsed is not None:
             recommend_reason = getattr(response.parsed, "recommend_reason", None)
             slope_warning = getattr(response.parsed, "slope_warning", None)
 
-        # response.text 수동 파싱
         raw_text = getattr(response, "text", None)
         if recommend_reason is None and isinstance(raw_text, str) and raw_text.strip():
             try:
@@ -301,7 +308,7 @@ async def generate_route_ai_text(
         recommend_reason = (recommend_reason or "").strip() or FALLBACK_RECOMMEND_REASON
 
         if slope_warning_needed:
-            slope_warning = (slope_warning or "").strip() if slope_warning else FALLBACK_SLOPE_WARNING
+            slope_warning = (slope_warning or "").strip() if slope_warning else dynamic_fallback_warning
         else:
             slope_warning = None
 

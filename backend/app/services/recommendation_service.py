@@ -1004,14 +1004,57 @@ async def select_best_candidate(
         ]
         max_slope_val = max(slope_degrees) if slope_degrees else 8.0
 
-    # 5. Gemini AI 문구 생성
+# 5. Gemini AI 문구 생성
+    # 1) detected_slopes 배열 추출
+    raw_detected_slopes = []
+    def _find_slopes_list(data):
+        if isinstance(data, dict):
+            for k, v in data.items():
+                if k == "detected_slopes" and isinstance(v, list):
+                    raw_detected_slopes.extend(v)
+                else:
+                    _find_slopes_list(v)
+        elif isinstance(data, list):
+            for item in data:
+                _find_slopes_list(item)
+
+    _find_slopes_list(recommended_route)
+
+    # 2) 지도 마커 표출 대상(A1_양측보도/인도) 수치만 지정 키(slope_degree 등)에서 정확히 추출
+    official_slopes = []
+    for item in raw_detected_slopes:
+        if isinstance(item, dict):
+            # 위도(latitude)/경도(longitude) 수집 차단: 오직 slope_degree / slope_percent / slope 키만 탐색
+            val = item.get("slope_degree") or item.get("slope_percent") or item.get("slope")
+            name = str(item.get("name", ""))
+            
+            if isinstance(val, (int, float)) and val > 0:
+                # 프론트엔드 지도 마커 표출 기준: B1_생활도로 제외 (A1_양측보도 수치만 반영)
+                if "B1" not in name:
+                    official_slopes.append(float(val))
+
+    # Fallback: 만약 보도 데이터가 별도로 없으면 전체 slope_degree 중 추출
+    if not official_slopes:
+        for item in raw_detected_slopes:
+            if isinstance(item, dict):
+                val = item.get("slope_degree") or item.get("slope_percent") or item.get("slope")
+                if isinstance(val, (int, float)) and val > 0:
+                    official_slopes.append(float(val))
+
+    print(f"\n🔍 [지도 마커용 최종 추출 목록 (양측보도)]: {official_slopes}\n")
+
+    if official_slopes:
+        max_slope_val = max(official_slopes)
+
+    print(f"🔍 [Gemini에 최종 전달되는 경사도 수치]: {max_slope_val}%\n")
+
     ai_text = await generate_route_ai_text(
         route=recommended_route,
         mobility_constraints=constraints,
         route_preference=preference,
         slope_warning_needed=slope_warning_needed,
-        max_slope_percent=max_slope_val,
-        slope_spot_count=count_val,
+        max_slope_percent=max_slope_val,  # 👈 정확하게 9.1%가 전달됩니다!
+        slope_spot_count=len(official_slopes) if official_slopes else count_val,
     )
 
     ai_reason = ai_text.get("recommend_reason")
@@ -1020,7 +1063,6 @@ async def select_best_candidate(
     recommended_route["ai_reason"] = ai_reason
     if ai_reason and isinstance(recommended_route.get("evaluation"), dict):
         recommended_route["evaluation"]["positive_reasons"] = [ai_reason]
-
     # 6. 반환값에 summary 객체 포함
     return {
         "mobility_constraints": constraints,
