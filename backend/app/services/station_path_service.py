@@ -458,6 +458,29 @@ def get_platform_search_text(
 ) -> str:
     """
     플랫폼 방향 검색에 사용할 문자열을 만듭니다.
+
+    구형 역사 그래프와 station_routing_v2 그래프를
+    모두 지원합니다.
+    """
+
+    search_fields = [
+        node.get("name", ""),
+        node.get("direction_name", ""),
+        node.get("detail_location", ""),
+        node.get("description", ""),
+        node.get("platform_key", ""),
+    ]
+
+    return " ".join(
+        str(value)
+        for value in search_fields
+        if value is not None
+    ).replace(
+        " ",
+        "",
+    ).strip()
+    """
+    플랫폼 방향 검색에 사용할 문자열을 만듭니다.
     """
 
     detail_location = str(
