@@ -1,0 +1,65 @@
+{
+  "station_code": "MOR_TRANSFER",
+  "station_name": "모란역 (환승간선: 8호선 ↔ 수인분당선)",
+  "line": "TRANSFER_TRUNK",
+  "parent_station_code": "MOR",
+  "segment": "TRANSFER_TRUNK",
+  "format_reference": "모란역 통합 그래프(moran_station_graph.json)를 노선별로 분리한 환승간선 세그먼트. 경계 노드는 각 노선 파일과 동일한 id를 그대로 사용하며 external=true로 표시됩니다.",
+  "nodes": [
+    {
+      "id": "MOR_TRANSFER_PASSAGE_B1",
+      "name": "8호선-수인분당선 환승통로",
+      "floor": "B1",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_CONCOURSE_B1",
+      "name": "8호선 대합실",
+      "floor": "B1",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "external": true,
+      "defined_in": "moran_line8_graph.json"
+    },
+    {
+      "id": "MOR_SB_CONCOURSE_B1",
+      "name": "수인분당선 대합실",
+      "floor": "B1",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "external": true,
+      "defined_in": "moran_suinbundang_graph.json"
+    }
+  ],
+  "edges": [
+    {
+      "id": "MOR_WALK_L8CONCOURSE_TRANSFER",
+      "source": "MOR_L8_CONCOURSE_B1",
+      "target": "MOR_TRANSFER_PASSAGE_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "8호선 대합실에서 환승통로로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_TRANSFER_SBCONCOURSE",
+      "source": "MOR_TRANSFER_PASSAGE_B1",
+      "target": "MOR_SB_CONCOURSE_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "환승통로를 이용해 분당선 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    }
+  ],
+  "notes": [
+    "이 세그먼트는 8호선 대합실(MOR_L8_CONCOURSE_B1)과 수인분당선 대합실/1·8번 출입구 사이 통로(MOR_SB_CONCOURSE_B1, MOR_SB_EXIT18_PASSAGE_B1)를 잇는 환승통로만 담습니다.",
+    "external=true 노드는 각각 moran_line8_graph.json / moran_suinbundang_graph.json에 원본이 정의되어 있으며, 여기서는 동일 id 참조로만 포함했습니다.",
+    "TRANSFER_SBCONCOURSE(직결)와 EXIT18_PASSAGE 경유 경로가 함께 존재하는 이유는 안내도 소스 자료(11번 출입구→분당선 경로는 직결 표현, 분당선→8호선 수진 방면 경로는 1·8번 출입구 통로를 경유하는 세부 표현)의 서술 granularity 차이 때문이며, 물리적으로는 동일한 환승통로 공간입니다."
+  ]
+}

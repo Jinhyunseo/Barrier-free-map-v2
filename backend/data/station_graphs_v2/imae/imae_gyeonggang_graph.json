@@ -1,0 +1,267 @@
+{
+  "station_code": "IMA_GG",
+  "station_name": "이매역 (경강선)",
+  "line": "GYEONGGANG",
+  "parent_station_code": "IMA",
+  "segment": "GYEONGGANG",
+  "format_reference": "모란역 노선별 분리 그래프(moran_line8_graph.json / moran_suinbundang_graph.json)와 동일한 포맷 — 이매역의 각 노선을 독립된 파일로 유지합니다.",
+  "interfaces": [
+    {
+      "node_id": "IMA_GG_PLATFORM_PANGYO",
+      "role": "경강선-환승간선 경계 노드 (판교 방면 승강장)",
+      "connects_to_file": "imae_transfer_trunk_graph.json",
+      "connects_to_node": ["IMA_PANGYO_SEOHYEON_EV_B3", "IMA_PANGYO_YATAP_EV_B3"]
+    },
+    {
+      "node_id": "IMA_GG_PLATFORM_SAMDONG",
+      "role": "경강선-환승간선 경계 노드 (삼동 방면 승강장)",
+      "connects_to_file": "imae_transfer_trunk_graph.json",
+      "connects_to_node": ["IMA_SAMDONG_SEOHYEON_EV_B3", "IMA_SAMDONG_YATAP_EV_B3"]
+    },
+    {
+      "node_id": "IMA_GG_CONCOURSE",
+      "role": "경강선 대합실-수인분당 대합실(엘리베이터)",
+      "connects_to_file": "imae_transfer_trunk_graph.json",
+      "connects_to_node": "IMA_GG_SB_EV_B2"
+    }
+  ],
+  "interfaces_note": "이매역 환승통로 안내도(수인분당선측 3D 단면도 + 현장 '현위치' 안내판)를 바탕으로 imae_transfer_trunk_graph.json이 작성되어, 이 파일의 IMA_GG_PLATFORM_PANGYO 노드(판교 방면 승강장)에서 수인분당선 그래프(imae_suinbundang_graph.json)로 이어지는 환승 경로가 연결되었습니다. 삼동 방면·야탑 방면과의 환승 연결은 아직 자료가 없습니다.",
+  "floor_label_note": "층수 표기를 B2(대합실/표 내는 곳 층)·B3(승강장 층)로 확정했습니다. 최초 작성 시에는 역 안내도의 이동경로 문구('지하3층 엘리베이터', '지하4층 승강장')를 그대로 따라 B3/B4로 표기했으나, 승강기_전체통합.json의 동일 엘리베이터 시설 기록(대합실측 B2 ↔ 승강장측 B3)과 현장 '현위치' 안내판 사진('경강선 타는 곳(지하3층)', '분당선 갈아타는 곳(지하2층)')이 서로 일치하는 것을 확인하여 B2/B3 표기로 수정했습니다.",
+  "nodes": [
+    {
+      "id": "IMA_GG_EXIT_5",
+      "name": "5번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_EXIT_5_EV_G1",
+      "name": "5번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_EXIT_5_EV_B2",
+      "name": "5번 출입구 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_EXIT_6",
+      "name": "6번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_EXIT_6_EV_G1",
+      "name": "6번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_EXIT_6_EV_B2",
+      "name": "6번 출입구 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_PANGYO_EV_B2",
+      "name": "판교 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_PANGYO_EV_B3",
+      "name": "판교 방면 승강장 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_PLATFORM_PANGYO",
+      "name": "판교 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_SAMDONG_EV_B2",
+      "name": "삼동 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_SAMDONG_EV_B3",
+      "name": "삼동 방면 승강장 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_PLATFORM_SAMDONG",
+      "name": "삼동 방면 승강장",
+      "sub": "휠체어칸 승차 위치 안내",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_GG_CONCOURSE",
+      "name": "경강 대합실",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "IMA_GG_WALK_EXIT5_EV",
+      "source": "IMA_GG_EXIT_5",
+      "target": "IMA_GG_EXIT_5_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "5번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_GG_EV_EXIT5",
+      "source": "IMA_GG_EXIT_5_EV_G1",
+      "target": "IMA_GG_EXIT_5_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2155256",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_GG_WALK_EXIT5EV_GGCONCOURSE",
+      "source": "IMA_GG_EXIT_5_EV_B2",
+      "target": "IMA_GG_CONCOURSE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "경강 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_GG_WALK_EXIT6_EV",
+      "source": "IMA_GG_EXIT_6",
+      "target": "IMA_GG_EXIT_6_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "6번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_GG_EV_EXIT6",
+      "source": "IMA_GG_EXIT_6_EV_G1",
+      "target": "IMA_GG_EXIT_6_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2155248",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_GG_WALK_EXIT6EV_GGCONCOURSE",
+      "source": "IMA_GG_EXIT_6_EV_B2",
+      "target": "IMA_GG_CONCOURSE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "경강 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_GG_WALK_GGCONCOURSE_PANGYO",
+      "source": "IMA_GG_CONCOURSE",
+      "target": "IMA_GG_PANGYO_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 판교 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_GG_WALK_GGCONCOURSE_SAMDONG",
+      "source": "IMA_GG_CONCOURSE",
+      "target": "IMA_GG_SAMDONG_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 삼동 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_GG_EV_PANGYO",
+      "source": "IMA_GG_PANGYO_EV_B2",
+      "target": "IMA_GG_PANGYO_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2155255",
+      "instruction": "엘리베이터를 이용해 지하 3층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_GG_WALK_PANGYO_PLATFORM",
+      "source": "IMA_GG_PANGYO_EV_B3",
+      "target": "IMA_GG_PLATFORM_PANGYO",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "판교 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "IMA_GG_EV_SAMDONG",
+      "source": "IMA_GG_SAMDONG_EV_B2",
+      "target": "IMA_GG_SAMDONG_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2155249",
+      "instruction": "엘리베이터를 이용해 지하 3층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_GG_WALK_SAMDONG_PLATFORM",
+      "source": "IMA_GG_SAMDONG_EV_B3",
+      "target": "IMA_GG_PLATFORM_SAMDONG",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "삼동 방면 승강장(휠체어칸)으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    }
+  ],
+  "notes": [
+    "역 안내도 8매(3·5·6·9번 출입구 각각 → 판교/삼동 방면)와 승강기_전체통합.json(이매역·경강선, K411)을 기준으로 작성했습니다.",
+    "5번 출입구 엘리베이터=2155256, 6번 출입구 엘리베이터=2155248로 매칭했습니다. 3번·9번 출입구는 안내도상 엘리베이터 경로가 존재하지만 제공된 시설 목록에 해당 항목이 없어(3번은 상행 에스컬레이터만 존재, 9번은 항목 자체가 없음) facility_id를 null로, 관련 엣지는 UNVERIFIED로 표기했습니다.",
+    "판교 방면 엘리베이터는 2155255('판교행 표내는곳 내 계단 옆'), 삼동 방면 엘리베이터는 2155249('삼동행 표내는곳 내 계단 옆')를 대표 엘리베이터로 선택했습니다. 시설 목록에는 이 외에도 '왕십리행 환승구간', '수원 인천행 환승구간' 경유로 같은 승강장에 도달하는 보조 엘리베이터가 각 방면당 2대씩 더 있으나(판교: 2155253·2155254, 삼동: 2155250·2155251), 이번 안내도 8매에는 해당 경유 경로의 상세 이동경로가 없어 그래프에는 포함하지 않았습니다.",
+    "층수 표기는 B2(대합실/표 내는 곳 층)·B3(승강장 층)로 확정했습니다. 이전에는 안내도 문구('지하3층 엘리베이터', '지하4층 승강장')를 그대로 따라 B3/B4로 표기했으나, 승강기_전체통합.json의 층수 표기 및 현장 '현위치' 안내판 사진과 대조하여 B2/B3로 수정했습니다(자세한 경위는 상단 floor_label_note 참고).",
+    "이 파일은 같은 역의 수인분당선 그래프(imae_suinbundang_graph.json)와 별개의 노선 세그먼트입니다. 두 파일 간 환승 통로는 imae_transfer_trunk_graph.json에서 별도로 연결됩니다."
+  ]
+}

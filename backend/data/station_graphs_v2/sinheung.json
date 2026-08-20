@@ -1,0 +1,200 @@
+{
+  "station_code": "SHH",
+  "station_name": "신흥역",
+  "line": "LINE8",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "SHH_EXIT_34",
+      "name": "3·4번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SHH_EXIT34_EV_G1",
+      "name": "3·4번 출입구 사이 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SHH_EXIT34_EV_B1",
+      "name": "3·4번 출입구 사이 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SHH_DANDAE_EV_B1",
+      "name": "단대오거리 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SHH_DANDAE_EV_B2",
+      "name": "단대오거리 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SHH_PLATFORM_DANDAE",
+      "name": "단대오거리 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SHH_SUJIN_EV_B1",
+      "name": "수진 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SHH_SUJIN_EV_B2",
+      "name": "수진 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SHH_PLATFORM_SUJIN",
+      "name": "수진 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "SHH_WALK_EXIT34_EV",
+      "source": "SHH_EXIT_34",
+      "target": "SHH_EXIT34_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "3·4번 출입구에서 출입구 사이 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SHH_ROUTE_EXIT34_DANDAE",
+        "SHH_ROUTE_EXIT34_SUJIN"
+      ]
+    },
+
+    {
+      "id": "SHH_EV_EXIT34",
+      "source": "SHH_EXIT34_EV_G1",
+      "target": "SHH_EXIT34_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": null,
+      "instruction": "3·4번 출입구 사이 엘리베이터를 이용해 지하 1층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SHH_ROUTE_EXIT34_DANDAE",
+        "SHH_ROUTE_EXIT34_SUJIN"
+      ]
+    },
+
+    {
+      "id": "SHH_WALK_EXIT34_DANDAE_EV",
+      "source": "SHH_EXIT34_EV_B1",
+      "target": "SHH_DANDAE_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "대합실을 지나 개집표기를 통과해 단대오거리 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SHH_ROUTE_EXIT34_DANDAE"
+      ]
+    },
+
+    {
+      "id": "SHH_EV_DANDAE",
+      "source": "SHH_DANDAE_EV_B1",
+      "target": "SHH_DANDAE_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2022969",
+      "instruction": "단대오거리 방면 엘리베이터를 이용해 지하 2층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SHH_ROUTE_EXIT34_DANDAE"
+      ]
+    },
+
+    {
+      "id": "SHH_WALK_DANDAE_PLATFORM",
+      "source": "SHH_DANDAE_EV_B2",
+      "target": "SHH_PLATFORM_DANDAE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "단대오거리 방면 승강장으로 이동 후 승차",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SHH_ROUTE_EXIT34_DANDAE"
+      ]
+    },
+
+    {
+      "id": "SHH_WALK_EXIT34_SUJIN_EV",
+      "source": "SHH_EXIT34_EV_B1",
+      "target": "SHH_SUJIN_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "대합실을 지나 개집표기를 통과해 수진 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SHH_ROUTE_EXIT34_SUJIN"
+      ]
+    },
+
+    {
+      "id": "SHH_EV_SUJIN",
+      "source": "SHH_SUJIN_EV_B1",
+      "target": "SHH_SUJIN_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2022970",
+      "instruction": "수진 방면 엘리베이터를 이용해 지하 2층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SHH_ROUTE_EXIT34_SUJIN"
+      ]
+    },
+
+    {
+      "id": "SHH_WALK_SUJIN_PLATFORM",
+      "source": "SHH_SUJIN_EV_B2",
+      "target": "SHH_PLATFORM_SUJIN",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "수진 방면 승강장으로 이동 후 승차",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SHH_ROUTE_EXIT34_SUJIN"
+      ]
+    }
+  ]
+}

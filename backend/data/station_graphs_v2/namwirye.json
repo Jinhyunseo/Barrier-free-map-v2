@@ -1,0 +1,330 @@
+{
+  "station_code": "NWR",
+  "station_name": "남위례역",
+  "line": "LINE8",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "NWR_EXIT_5",
+      "name": "5번 출입구",
+      "floor": "F1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "NWR_EXIT5_EV_F1",
+      "name": "5번 출입구 엘리베이터",
+      "floor": "F1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NWR_EXIT5_EV_F2",
+      "name": "5번 출입구 엘리베이터",
+      "floor": "F2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NWR_EXIT5_EV_F3",
+      "name": "5번 출입구 엘리베이터",
+      "floor": "F3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "NWR_PLATFORM_AMSA",
+      "name": "암사방면 승강장",
+      "floor": "F2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "NWR_MORAN_EV_F3",
+      "name": "모란방면 승강장 엘리베이터",
+      "floor": "F3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NWR_MORAN_EV_F2",
+      "name": "모란방면 승강장 엘리베이터",
+      "floor": "F2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NWR_PLATFORM_MORAN",
+      "name": "모란방면 승강장",
+      "floor": "F2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "NWR_EXIT_2",
+      "name": "2번 출입구",
+      "floor": "F1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NWR_OVERPASS_EV_12_F1",
+      "name": "육교 엘리베이터 1-2",
+      "floor": "F1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NWR_OVERPASS_EV_12_F2",
+      "name": "육교 엘리베이터 1-2",
+      "floor": "F2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "NWR_EXIT_34",
+      "name": "3·4번 출입구",
+      "floor": "F1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NWR_OVERPASS_EV_11_F1",
+      "name": "육교 엘리베이터 1-1",
+      "floor": "F1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "NWR_OVERPASS_EV_11_F2",
+      "name": "육교 엘리베이터 1-1",
+      "floor": "F2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "NWR_WALK_EXIT5_EV",
+      "source": "NWR_EXIT_5",
+      "target": "NWR_EXIT5_EV_F1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "5번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NWR_ROUTE_EXIT5_AMSA",
+        "NWR_ROUTE_EXIT5_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_EV_EXIT5_F1_F2",
+      "source": "NWR_EXIT5_EV_F1",
+      "target": "NWR_EXIT5_EV_F2",
+      "mode": "ELEVATOR",
+      "facility_id": "2249471",
+      "instruction": "5번 출입구 엘리베이터를 이용해 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NWR_ROUTE_EXIT5_AMSA",
+        "NWR_ROUTE_EXIT5_MORAN",
+        "NWR_ROUTE_EXIT2_MORAN",
+        "NWR_ROUTE_EXIT34_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_WALK_F2_AMSA_PLATFORM",
+      "source": "NWR_EXIT5_EV_F2",
+      "target": "NWR_PLATFORM_AMSA",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "2층 대합실에서 표내는 곳을 통과해 암사방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NWR_ROUTE_EXIT5_AMSA",
+        "NWR_ROUTE_EXIT2_AMSA",
+        "NWR_ROUTE_EXIT34_AMSA"
+      ]
+    },
+
+    {
+      "id": "NWR_EV_EXIT5_F2_F3",
+      "source": "NWR_EXIT5_EV_F2",
+      "target": "NWR_EXIT5_EV_F3",
+      "mode": "ELEVATOR",
+      "facility_id": "2249471",
+      "instruction": "엘리베이터를 이용해 3층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NWR_ROUTE_EXIT5_MORAN",
+        "NWR_ROUTE_EXIT2_MORAN",
+        "NWR_ROUTE_EXIT34_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_WALK_F3_MORAN_EV",
+      "source": "NWR_EXIT5_EV_F3",
+      "target": "NWR_MORAN_EV_F3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "3층 대합실에서 표내는 곳을 통과해 모란방면 승강장 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NWR_ROUTE_EXIT5_MORAN",
+        "NWR_ROUTE_EXIT2_MORAN",
+        "NWR_ROUTE_EXIT34_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_EV_MORAN",
+      "source": "NWR_MORAN_EV_F3",
+      "target": "NWR_MORAN_EV_F2",
+      "mode": "ELEVATOR",
+      "facility_id": "2249472",
+      "instruction": "모란방면 승강장 엘리베이터를 이용해 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NWR_ROUTE_EXIT5_MORAN",
+        "NWR_ROUTE_EXIT2_MORAN",
+        "NWR_ROUTE_EXIT34_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_WALK_MORAN_PLATFORM",
+      "source": "NWR_MORAN_EV_F2",
+      "target": "NWR_PLATFORM_MORAN",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "모란방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "NWR_ROUTE_EXIT5_MORAN",
+        "NWR_ROUTE_EXIT2_MORAN",
+        "NWR_ROUTE_EXIT34_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_WALK_EXIT2_OVERPASS_EV",
+      "source": "NWR_EXIT_2",
+      "target": "NWR_OVERPASS_EV_12_F1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "2번 출입구에서 육교 엘리베이터 1-2로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "NAMWIRYE_OVERPASS_FACILITY",
+      "route_ids": [
+        "NWR_ROUTE_EXIT2_AMSA",
+        "NWR_ROUTE_EXIT2_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_EV_OVERPASS_12",
+      "source": "NWR_OVERPASS_EV_12_F1",
+      "target": "NWR_OVERPASS_EV_12_F2",
+      "mode": "ELEVATOR",
+      "facility_id": "2253165",
+      "instruction": "육교 엘리베이터 1-2를 이용해 2층 육교로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "NAMWIRYE_OVERPASS_FACILITY",
+      "route_ids": [
+        "NWR_ROUTE_EXIT2_AMSA",
+        "NWR_ROUTE_EXIT2_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_WALK_OVERPASS12_STATION_F2",
+      "source": "NWR_OVERPASS_EV_12_F2",
+      "target": "NWR_EXIT5_EV_F2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "육교를 따라 남위례역 2층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "NAMWIRYE_STATION_STRUCTURE",
+      "route_ids": [
+        "NWR_ROUTE_EXIT2_AMSA",
+        "NWR_ROUTE_EXIT2_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_WALK_EXIT34_OVERPASS_EV",
+      "source": "NWR_EXIT_34",
+      "target": "NWR_OVERPASS_EV_11_F1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "3·4번 출입구에서 육교 엘리베이터 1-1로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "NAMWIRYE_OVERPASS_FACILITY",
+      "route_ids": [
+        "NWR_ROUTE_EXIT34_AMSA",
+        "NWR_ROUTE_EXIT34_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_EV_OVERPASS_11",
+      "source": "NWR_OVERPASS_EV_11_F1",
+      "target": "NWR_OVERPASS_EV_11_F2",
+      "mode": "ELEVATOR",
+      "facility_id": "2253164",
+      "instruction": "육교 엘리베이터 1-1을 이용해 2층 육교로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "NAMWIRYE_OVERPASS_FACILITY",
+      "route_ids": [
+        "NWR_ROUTE_EXIT34_AMSA",
+        "NWR_ROUTE_EXIT34_MORAN"
+      ]
+    },
+
+    {
+      "id": "NWR_WALK_OVERPASS11_STATION_F2",
+      "source": "NWR_OVERPASS_EV_11_F2",
+      "target": "NWR_EXIT5_EV_F2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "육교를 따라 남위례역 2층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "NAMWIRYE_STATION_STRUCTURE",
+      "route_ids": [
+        "NWR_ROUTE_EXIT34_AMSA",
+        "NWR_ROUTE_EXIT34_MORAN"
+      ]
+    }
+  ]
+}

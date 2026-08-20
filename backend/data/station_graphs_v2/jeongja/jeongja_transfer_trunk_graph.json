@@ -1,0 +1,143 @@
+{
+  "station_code": "JJA_TRANSFER",
+  "station_name": "정자역 (환승간선: 신분당선 ↔ 수인분당선)",
+  "line": "TRANSFER_TRUNK",
+  "parent_station_code": "JJA",
+  "segment": "TRANSFER_TRUNK",
+  "format_reference": "모란역/이매역 환승간선 그래프와 동일한 포맷 — 경계 노드는 각 노선 파일과 동일한 id를 그대로 사용하며 external=true로 표시됩니다.",
+  "sources": [
+    "정자역 환승 안내도 4매 (3D 단면도, 신분당선 판교/미금 방면 승강장 → 수인분당선 수내/미금 방면 승강장, ①~⑦ 경로 표기)"
+  ],
+  "nodes": [
+    {
+      "id": "JJA_SD_CONCOURSE_B3",
+      "name": "신분당선 대합실 (표 내는 곳)",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "external": true,
+      "defined_in": "jeongja_sinbundang_graph.json"
+    },
+    {
+      "id": "JJA_SB_PLATFORM_SUNAE",
+      "name": "수내 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "external": true,
+      "defined_in": "jeongja_suinbundang_graph.json"
+    },
+    {
+      "id": "JJA_SB_PLATFORM_MIGEUM",
+      "name": "미금 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "external": true,
+      "defined_in": "jeongja_suinbundang_graph.json"
+    },
+    {
+      "id": "JJA_SBMIGEUM_SD_EV_B2",
+      "name": "미금-대합실 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SBMIGEUM_SD_EV_B3",
+      "name": "미금-대합실 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SBSUNAE_SD_EV_B2",
+      "name": "수내-대합실 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "JJA_SBSUNAE_SD_EV_B3",
+      "name": "수내-대합실 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "JJA_WALK_SDCONCOURSE_MIGEUMEV",
+      "source": "JJA_SD_CONCOURSE_B3",
+      "target": "JJA_SBMIGEUM_SD_EV_B3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "신분당선 대합실에서 미금 방향 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_EV_MIGEUM_B3_B2",
+      "source": "JJA_SBMIGEUM_SD_EV_B3",
+      "target": "JJA_SBMIGEUM_SD_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2051675",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "JJA_WALK_MIGEUMEV_MIGEUM",
+      "source": "JJA_SBMIGEUM_SD_EV_B2",
+      "target": "JJA_SB_PLATFORM_MIGEUM",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "엘리베이터에서 미금 방향으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_WALK_SDCONCOURSE_SUNAEEV",
+      "source": "JJA_SD_CONCOURSE_B3",
+      "target": "JJA_SBSUNAE_SD_EV_B3",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "신분당선 대합실에서 수내 방향 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "JJA_EV_SUNAE_B3_B2",
+      "source": "JJA_SBSUNAE_SD_EV_B3",
+      "target": "JJA_SBSUNAE_SD_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2051676",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "JJA_WALK_SUNAEEV_SUNAE",
+      "source": "JJA_SBSUNAE_SD_EV_B2",
+      "target": "JJA_SB_PLATFORM_SUNAE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "엘리베이터에서 수내 방향으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    }
+  ],
+  "notes": [
+    "이 파일은 jeongja_sinbundang_graph.json과 jeongja_suinbundang_graph.json 사이를 잇는 최소 연결부만 담습니다(모란역/이매역 환승간선과 동일한 설계) — 각 노선 내부의 엘리베이터/승강장 경로는 해당 파일에 이미 있으므로 여기서 중복하지 않았습니다.",
+    "안내도 4매 모두 '신분당선 판교/미금 방면 → 수인분당선 수내/미금 방면' 방향만 촬영되어 있어, 이 방향으로만 엣지를 CONFIRMED로 반영했습니다. 반대 방향(수인분당선→신분당선)도 물리적으로 같은 통로를 이용할 것으로 보이나, 별도 안내도로 확인되지 않아 포함하지 않았습니다.",
+    "환승통로 구간 자체에는 계단이나 엘리베이터 등 층간 이동 수단이 없이 도보로만 연결되어 있습니다. 다만 신분당선측은 이 대합실을 '지하2층'으로, 수인분당선측은 연결되는 지점(미금/수내 방면 엘리베이터 앞 대합실)을 '지하1층'으로 표기하고 있어 노선별 층수 표기가 다릅니다 — 각 노선이 지상에서부터 독자적으로 층수를 매기기 때문으로 보이며, 실제로는 계단/경사 없이 도보로 이어지는 동일 레벨로 판단됩니다. 이 파일에서는 편의상 환승통로 노드의 floor를 B2로 표기했습니다.",
+    "휠체어칸 승차 위치는 각 노선 파일(jeongja_sinbundang_graph.json, jeongja_suinbundang_graph.json)의 PLATFORM 노드에 안내되어 있습니다."
+  ]
+}

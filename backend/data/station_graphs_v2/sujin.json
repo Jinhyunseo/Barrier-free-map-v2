@@ -1,0 +1,195 @@
+{
+  "station_code": "SUJ",
+  "station_name": "수진역",
+  "line": "LINE8",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "SUJ_EXIT_3",
+      "name": "3번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SUJ_EXIT3_EV_G1",
+      "name": "3번 출입구 옆 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SUJ_EXIT3_EV_B1",
+      "name": "3번 출입구 옆 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SUJ_SINHEUNG_EV_B1",
+      "name": "신흥 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SUJ_SINHEUNG_EV_B2",
+      "name": "신흥 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SUJ_PLATFORM_SINHEUNG",
+      "name": "신흥 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SUJ_MORAN_EV_B1",
+      "name": "모란 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SUJ_MORAN_EV_B2",
+      "name": "모란 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SUJ_PLATFORM_MORAN",
+      "name": "모란 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "SUJ_WALK_EXIT3_EV",
+      "source": "SUJ_EXIT_3",
+      "target": "SUJ_EXIT3_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "3번 출입구 옆 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SUJ_ROUTE_EXIT3_SINHEUNG",
+        "SUJ_ROUTE_EXIT3_MORAN"
+      ]
+    },
+    {
+      "id": "SUJ_EV_EXIT3",
+      "source": "SUJ_EXIT3_EV_G1",
+      "target": "SUJ_EXIT3_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2212625",
+      "instruction": "3번 출입구 옆 엘리베이터를 이용해 지하 1층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SUJ_ROUTE_EXIT3_SINHEUNG",
+        "SUJ_ROUTE_EXIT3_MORAN"
+      ]
+    },
+
+    {
+      "id": "SUJ_WALK_EXIT3_SINHEUNG_EV",
+      "source": "SUJ_EXIT3_EV_B1",
+      "target": "SUJ_SINHEUNG_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "대합실을 지나 표 내는 곳을 통과한 후 신흥 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SUJ_ROUTE_EXIT3_SINHEUNG"
+      ]
+    },
+    {
+      "id": "SUJ_EV_SINHEUNG",
+      "source": "SUJ_SINHEUNG_EV_B1",
+      "target": "SUJ_SINHEUNG_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2116589",
+      "instruction": "신흥 방면 엘리베이터를 이용해 지하 2층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SUJ_ROUTE_EXIT3_SINHEUNG"
+      ]
+    },
+    {
+      "id": "SUJ_WALK_SINHEUNG_PLATFORM",
+      "source": "SUJ_SINHEUNG_EV_B2",
+      "target": "SUJ_PLATFORM_SINHEUNG",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "신흥 방면 승강장으로 이동 후 승차 (휠체어칸)",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SUJ_ROUTE_EXIT3_SINHEUNG"
+      ]
+    },
+
+    {
+      "id": "SUJ_WALK_EXIT3_MORAN_EV",
+      "source": "SUJ_EXIT3_EV_B1",
+      "target": "SUJ_MORAN_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "대합실을 지나 표 내는 곳을 통과한 후 모란 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SUJ_ROUTE_EXIT3_MORAN"
+      ]
+    },
+    {
+      "id": "SUJ_EV_MORAN",
+      "source": "SUJ_MORAN_EV_B1",
+      "target": "SUJ_MORAN_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2116590",
+      "instruction": "모란 방면 엘리베이터를 이용해 지하 2층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SUJ_ROUTE_EXIT3_MORAN"
+      ]
+    },
+    {
+      "id": "SUJ_WALK_MORAN_PLATFORM",
+      "source": "SUJ_MORAN_EV_B2",
+      "target": "SUJ_PLATFORM_MORAN",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "모란 방면 승강장으로 이동 후 승차 (휠체어칸)",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SUJ_ROUTE_EXIT3_MORAN"
+      ]
+    }
+  ]
+}

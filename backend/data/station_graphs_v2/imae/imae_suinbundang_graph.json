@@ -1,0 +1,263 @@
+{
+  "station_code": "IMA_SB",
+  "station_name": "이매역 (수인분당선)",
+  "line": "SUIN_BUNDANG",
+  "parent_station_code": "IMA",
+  "segment": "SUIN_BUNDANG",
+  "format_reference": "모란역 노선별 분리 그래프(moran_line8_graph.json / moran_suinbundang_graph.json)와 동일한 포맷 — 이매역의 각 노선을 독립된 파일로 유지합니다.",
+  "interfaces": [
+    {
+      "node_id": "IMA_PLATFORM_YATAP",
+      "role": "야탑 방면 승강장-경강선 엘리베이터",
+      "connects_to_file": "imae_transfer_trunk_graph.json",
+      "connects_to_node": ["IMA_SAMDONG_YATAP_EV_B2", "IMA_PANGYO_YATAP_EV_B2"]
+    },
+    {
+      "node_id": "IMA_PLATFORM_SEOHYEON",
+      "role": "서현 방면 승강장-경강선 엘리베이터",
+      "connects_to_file": "imae_transfer_trunk_graph.json",
+      "connects_to_node": ["IMA_PANGYO_SEOHYEON_EV_B2", "IMA_SAMDONG_SEOHYEON_EV_B2"]
+    },
+    {
+      "node_id": "IMA_SB_CONCOURSE",
+      "role": "수인분당 대합실-경강선 대합실(엘리베이터)",
+      "connects_to_file": "imae_transfer_trunk_graph.json",
+      "connects_to_node": "IMA_GG_SB_EV_B1"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "IMA_EXIT_3",
+      "name": "3번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_EXIT_3_EV_G1",
+      "name": "3번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_EXIT_3_EV_B1",
+      "name": "3번 출입구 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_EXIT_9",
+      "name": "9번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_EXIT_9_EV_G1",
+      "name": "9번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_EXIT_9_EV_B1",
+      "name": "9번 출입구 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_SB_CONCOURSE",
+      "name": "수인분당 대합실",
+      "floor": "B1",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_YATAP_EV_B1",
+      "name": "야탑 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_YATAP_EV_B2",
+      "name": "야탑 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_PLATFORM_YATAP",
+      "name": "야탑 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_SEOHYEON_EV_B1",
+      "name": "서현 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_SEOHYEON_EV_B2",
+      "name": "서현 방면 승강장 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "IMA_PLATFORM_SEOHYEON",
+      "name": "서현 방면 승강장",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "IMA_WALK_EXIT3_EV",
+      "source": "IMA_EXIT_3",
+      "target": "IMA_EXIT_3_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "3번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_EV_EXIT3",
+      "source": "IMA_EXIT_3_EV_G1",
+      "target": "IMA_EXIT_3_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2141631",
+      "instruction": "엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_EXIT3_SBCONCOURSE",
+      "source": "IMA_EXIT_3_EV_B1",
+      "target": "IMA_SB_CONCOURSE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "수인분당 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_SBCONCOURSE_YATAP",
+      "source": "IMA_SB_CONCOURSE",
+      "target": "IMA_YATAP_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 야탑 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_SBCONCOURSE_SEOHYEON",
+      "source": "IMA_SB_CONCOURSE",
+      "target": "IMA_SEOHYEON_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "표 내는 곳을 통과해 서현 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_EXIT9_EV",
+      "source": "IMA_EXIT_9",
+      "target": "IMA_EXIT_9_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "9번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_EV_EXIT9",
+      "source": "IMA_EXIT_9_EV_G1",
+      "target": "IMA_EXIT_9_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2141639",
+      "instruction": "엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_EXIT9_SBCONCOURSE",
+      "source": "IMA_EXIT_9_EV_B1",
+      "target": "IMA_SB_CONCOURSE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "수인분당 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_EV_YATAP",
+      "source": "IMA_YATAP_EV_B1",
+      "target": "IMA_YATAP_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2050934",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_YATAP_PLATFORM",
+      "source": "IMA_YATAP_EV_B2",
+      "target": "IMA_PLATFORM_YATAP",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "야탑 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_EV_SEOHYEON",
+      "source": "IMA_SEOHYEON_EV_B1",
+      "target": "IMA_SEOHYEON_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2141638",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    },
+    {
+      "id": "IMA_WALK_SEOHYEON_PLATFORM",
+      "source": "IMA_SEOHYEON_EV_B2",
+      "target": "IMA_PLATFORM_SEOHYEON",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "서현 방면 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE"
+    }
+  ],
+  "notes": [
+    "역 안내도 8매(3·5·6·9번 출입구 각각 → 야탑/서현 방면, 총 8개 조합)와 승강기_전체통합.json(이매역·수인분당선, K227)을 기준으로 작성했습니다.",
+    "3번 출입구 엘리베이터=2116631이 아니라 2141631, 9번 출입구 엘리베이터=2141639, 야탑 방면 엘리베이터=2050934, 서현 방면 엘리베이터=2141638로 매칭했습니다(모두 2026-08-16 19:36 기준 운행중).",
+    "5번·6번 출입구 엘리베이터는 안내도에는 표시되어 있으나 제공된 승강기_전체통합.json 시설 목록에는 해당 출입구의 엘리베이터 항목이 없어 facility_id를 null로, 관련 엣지는 UNVERIFIED로 표기했습니다. 시설 데이터가 추가되면 채워 넣을 수 있습니다.",
+    "각 출입구 → 대합실 도착 후 '표 내는 곳(개집표기)'을 통과해 야탑/서현 방면 엘리베이터로 이동하는 구조는 야탑역(YTP) 그래프와 동일한 패턴입니다.",
+    "경강선으로 이동하려면 IMA_SEOHYEON_EV_B1 노드에서 환승간선 그래프(imae_transfer_trunk_graph.json)로 이어집니다."
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "station_code": "MOR_L8",
+  "station_name": "모란역 (8호선)",
+  "line": "LINE8",
+  "parent_station_code": "MOR",
+  "segment": "LINE8",
+  "format_reference": "모란역 통합 그래프(moran_station_graph.json)를 노선별로 분리한 8호선 세그먼트",
+  "interfaces": [
+    {
+      "node_id": "MOR_L8_CONCOURSE_B1",
+      "role": "8호선-환승간선 경계 노드 (8호선 대합실)",
+      "connects_to_file": "moran_transfer_trunk_graph.json",
+      "connects_to_node": "MOR_TRANSFER_PASSAGE_B1"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "MOR_L8_EXIT_11",
+      "name": "11번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_EXIT_11_EV_G1",
+      "name": "11번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_EXIT_11_EV_B1",
+      "name": "11번 출입구 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_CONCOURSE_B1",
+      "name": "8호선 대합실",
+      "floor": "B1",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_SUJIN_EV_B1",
+      "name": "8호선 수진 방면 엘리베이터",
+      "floor": "B1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_SUJIN_EV_B2",
+      "name": "8호선 수진 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null,
+      "note": "수진 방면 엘리베이터가 지하 2층에도 정차함"
+    },
+    {
+      "id": "MOR_L8_CONCOURSE_B2",
+      "name": "8호선 B2 대합실",
+      "floor": "B2",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_SUJIN_EV_B3",
+      "name": "8호선 수진 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_PLATFORM_SUJIN",
+      "name": "8호선 수진 방면 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null,
+      "note": "승강장 안내상 '휠체어칸' 승차 위치 별도 표기됨"
+    },
+    {
+      "id": "MOR_L8_MORAN_EV_B2",
+      "name": "8호선 모란(종착) 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_MORAN_EV_B3",
+      "name": "8호선 모란(종착) 방면 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "MOR_L8_PLATFORM_MORAN",
+      "name": "8호선 모란(종착역) 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+  "edges": [
+    {
+      "id": "MOR_WALK_EXIT11_EV",
+      "source": "MOR_L8_EXIT_11",
+      "target": "MOR_L8_EXIT_11_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "11번 출입구 근처 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_EV_EXIT11",
+      "source": "MOR_L8_EXIT_11_EV_G1",
+      "target": "MOR_L8_EXIT_11_EV_B1",
+      "mode": "ELEVATOR",
+      "facility_id": "2116585",
+      "instruction": "엘리베이터를 이용해 지하 1층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_EXIT11EV_L8CONCOURSE_B1",
+      "source": "MOR_L8_EXIT_11_EV_B1",
+      "target": "MOR_L8_CONCOURSE_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "8호선 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_L8CONCOURSE_SUJINEV",
+      "source": "MOR_L8_CONCOURSE_B1",
+      "target": "MOR_L8_SUJIN_EV_B1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "8호선 수진 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_EV_SUJIN_B1_B2",
+      "source": "MOR_L8_SUJIN_EV_B1",
+      "target": "MOR_L8_SUJIN_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2116583",
+      "instruction": "엘리베이터를 이용해 지하 2층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_SUJINEV_L8CONCOURSE_B2",
+      "source": "MOR_L8_SUJIN_EV_B2",
+      "target": "MOR_L8_CONCOURSE_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "8호선 B2 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_EV_SUJIN_B2_B3",
+      "source": "MOR_L8_SUJIN_EV_B2",
+      "target": "MOR_L8_SUJIN_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2116583",
+      "instruction": "엘리베이터를 이용해 지하 3층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_SUJINEV_PLATFORM",
+      "source": "MOR_L8_SUJIN_EV_B3",
+      "target": "MOR_L8_PLATFORM_SUJIN",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "8호선 수진 방면 승강장으로 이동 (휠체어칸 승차 위치로 이동)",
+      "confidence": "CONFIRMED",
+      "provenance_source": "STATION_ACCESS_MAP"
+    },
+    {
+      "id": "MOR_WALK_L8CONCOURSE_MORANEV",
+      "source": "MOR_L8_CONCOURSE_B2",
+      "target": "MOR_L8_MORAN_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "8호선 모란(종착) 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "INFERRED_FROM_FACILITY_LIST"
+    },
+    {
+      "id": "MOR_EV_MORAN",
+      "source": "MOR_L8_MORAN_EV_B2",
+      "target": "MOR_L8_MORAN_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2116584",
+      "instruction": "엘리베이터를 이용해 지하 3층으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_FACILITY_STATUS"
+    },
+    {
+      "id": "MOR_WALK_MORANEV_PLATFORM",
+      "source": "MOR_L8_MORAN_EV_B3",
+      "target": "MOR_L8_PLATFORM_MORAN",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "8호선 모란(종착역) 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "INFERRED_FROM_FACILITY_LIST"
+    }
+  ],
+  "notes": [
+    "8호선 수진 방면 엘리베이터(2116583)는 지하 1층↔지하 2층↔지하 3층을 모두 정차하는 것으로 확인되어, 기존 B1→B3 직결 엣지를 B1→B2, B2→B3 두 구간으로 분리했습니다.",
+    "수인분당선으로 이동하려면 MOR_L8_CONCOURSE_B1 노드에서 환승간선 그래프(moran_transfer_trunk_graph.json)로 이어집니다."
+  ]
+}

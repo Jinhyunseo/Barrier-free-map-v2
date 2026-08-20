@@ -1,0 +1,280 @@
+{
+  "station_code": "SNG",
+  "station_name": "성남역",
+  "line": "GYEONGGANG",
+  "parent_station_code": "IMA",
+
+  "nodes": [
+    {
+      "id": "SNG_EXIT_3",
+      "name": "3번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNG_EXIT3_EV_G1",
+      "name": "3번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNG_EXIT3_EV_B2",
+      "name": "3번 출입구 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SNG_EXIT_5",
+      "name": "5번 출입구",
+      "floor": "G1",
+      "type": "EXIT",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNG_EXIT5_EV_G1",
+      "name": "5번 출입구 엘리베이터",
+      "floor": "G1",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNG_EXIT5_EV_B2",
+      "name": "5번 출입구 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SNG_PANGYO_EV_B2",
+      "name": "판교 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNG_PANGYO_EV_B3",
+      "name": "판교 방면 승강장 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNG_PLATFORM_PANGYO",
+      "name": "판교 방면 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    },
+
+    {
+      "id": "SNG_IMAE_EV_B2",
+      "name": "이매 방면 엘리베이터",
+      "floor": "B2",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNG_IMAE_EV_B3",
+      "name": "이매 방면 승강장 엘리베이터",
+      "floor": "B3",
+      "type": "ELEVATOR",
+      "lat": null,
+      "lng": null
+    },
+    {
+      "id": "SNG_PLATFORM_IMAE",
+      "name": "이매 방면 승강장",
+      "floor": "B3",
+      "type": "PLATFORM",
+      "lat": null,
+      "lng": null
+    }
+  ],
+
+  "edges": [
+    {
+      "id": "SNG_WALK_EXIT3_EV",
+      "source": "SNG_EXIT_3",
+      "target": "SNG_EXIT3_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "3번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT3_PANGYO",
+        "SNG_ROUTE_EXIT3_IMAE"
+      ]
+    },
+    {
+      "id": "SNG_EV_EXIT3",
+      "source": "SNG_EXIT3_EV_G1",
+      "target": "SNG_EXIT3_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2268789",
+      "instruction": "3번 출입구 엘리베이터를 이용해 지하 2층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT3_PANGYO",
+        "SNG_ROUTE_EXIT3_IMAE"
+      ]
+    },
+
+    {
+      "id": "SNG_WALK_EXIT5_EV",
+      "source": "SNG_EXIT_5",
+      "target": "SNG_EXIT5_EV_G1",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "5번 출입구에서 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT5_PANGYO",
+        "SNG_ROUTE_EXIT5_IMAE"
+      ]
+    },
+    {
+      "id": "SNG_EV_EXIT5",
+      "source": "SNG_EXIT5_EV_G1",
+      "target": "SNG_EXIT5_EV_B2",
+      "mode": "ELEVATOR",
+      "facility_id": "2268769",
+      "instruction": "5번 출입구 엘리베이터를 이용해 지하 2층 대합실로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT5_PANGYO",
+        "SNG_ROUTE_EXIT5_IMAE"
+      ]
+    },
+
+    {
+      "id": "SNG_WALK_EXIT3_PANGYO_EV",
+      "source": "SNG_EXIT3_EV_B2",
+      "target": "SNG_PANGYO_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 2층 대합실에서 판교 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT3_PANGYO"
+      ]
+    },
+    {
+      "id": "SNG_WALK_EXIT5_PANGYO_EV",
+      "source": "SNG_EXIT5_EV_B2",
+      "target": "SNG_PANGYO_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 2층 대합실에서 판교 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT5_PANGYO"
+      ]
+    },
+
+    {
+      "id": "SNG_EV_PANGYO",
+      "source": "SNG_PANGYO_EV_B2",
+      "target": "SNG_PANGYO_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2268772",
+      "instruction": "판교 방면 엘리베이터를 이용해 지하 3층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT3_PANGYO",
+        "SNG_ROUTE_EXIT5_PANGYO"
+      ]
+    },
+    {
+      "id": "SNG_WALK_PANGYO_PLATFORM",
+      "source": "SNG_PANGYO_EV_B3",
+      "target": "SNG_PLATFORM_PANGYO",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "판교 방면 승강장으로 이동 후 승차 (휠체어칸)",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT3_PANGYO",
+        "SNG_ROUTE_EXIT5_PANGYO"
+      ]
+    },
+
+    {
+      "id": "SNG_WALK_EXIT3_IMAE_EV",
+      "source": "SNG_EXIT3_EV_B2",
+      "target": "SNG_IMAE_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 2층 대합실에서 이매 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT3_IMAE"
+      ]
+    },
+    {
+      "id": "SNG_WALK_EXIT5_IMAE_EV",
+      "source": "SNG_EXIT5_EV_B2",
+      "target": "SNG_IMAE_EV_B2",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "지하 2층 대합실에서 이매 방면 엘리베이터로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT5_IMAE"
+      ]
+    },
+
+    {
+      "id": "SNG_EV_IMAE",
+      "source": "SNG_IMAE_EV_B2",
+      "target": "SNG_IMAE_EV_B3",
+      "mode": "ELEVATOR",
+      "facility_id": "2268765",
+      "instruction": "이매 방면 엘리베이터를 이용해 지하 3층 승강장으로 이동",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT3_IMAE",
+        "SNG_ROUTE_EXIT5_IMAE"
+      ]
+    },
+    {
+      "id": "SNG_WALK_IMAE_PLATFORM",
+      "source": "SNG_IMAE_EV_B3",
+      "target": "SNG_PLATFORM_IMAE",
+      "mode": "WALK",
+      "facility_id": null,
+      "instruction": "이매 방면 승강장으로 이동 후 승차 (휠체어칸)",
+      "confidence": "CONFIRMED",
+      "provenance_source": "KRIC_ACCESSIBLE_ROUTE",
+      "route_ids": [
+        "SNG_ROUTE_EXIT3_IMAE",
+        "SNG_ROUTE_EXIT5_IMAE"
+      ]
+    }
+  ]
+}
