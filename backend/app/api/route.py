@@ -56,6 +56,10 @@ from app.station_routing_v2.graph_merge import (
     build_station_graph_from_directory,
 )
 
+from app.station_routing_v2.graph_loader import (
+    load_station_graph,
+)
+
 from app.station_routing_v2.path_finder import (
     find_internal_route,
 )
@@ -99,6 +103,23 @@ TRANSFER_STATION_CONFIG = {
 }
 
 
+STATION_FILE_CONFIG = {
+    "태평": "taepyeong",
+    "가천대": "gachon_univ",
+    "수진": "sujin",
+    "야탑": "yatap",
+    "서현": "seohyeon",
+    "수내": "sunae",
+    "오리": "ori",
+    "산성": "sanseong",
+    "남한산성입구": "namhansanseong",
+    "단대오거리": "dandaeogeori",
+    "신흥": "sinheung",
+    "남위례": "namwirye",
+    "성남": "seongnam",
+}
+
+
 def _normalize_station_text(
     value: Any,
 ) -> str:
@@ -117,14 +138,14 @@ def _normalize_station_text(
 def _find_v2_platform_node(
     graph: Any,
     direction_station: str | None,
+    line_name: str | None = None,
 ) -> str | None:
     """
-    direction_station을 이용해
-    신형 그래프의 PLATFORM node를 찾는다.
+    진행 방향 + 노선 정보를 이용해
+    V2 그래프의 PLATFORM node를 찾는다.
 
-    예:
-        판교 -> IMA_GG_PLATFORM_PANGYO
-        서현 -> IMA_PLATFORM_SEOHYEON
+    복수 노선 역에서 같은 방향명이 여러 PLATFORM에
+    존재할 수 있으므로 line_name을 함께 사용한다.
     """
 
     target = _normalize_station_text(
@@ -134,7 +155,24 @@ def _find_v2_platform_node(
     if not target:
         return None
 
-    candidates: list[str] = []
+    # --------------------------------------------------------------------------
+    # 노선명 -> 그래프 파일명 식별 키워드
+    # --------------------------------------------------------------------------
+
+    line_file_keywords = {
+        "신분당선": "sinbundang",
+        "수인분당선": "suinbundang",
+        "경강선": "gyeonggang",
+        "8호선": "line8",
+    }
+
+    candidates: list[
+        tuple[str, dict[str, Any]]
+    ] = []
+
+    # --------------------------------------------------------------------------
+    # 1. 우선 방향명이 맞는 PLATFORM을 모두 찾는다.
+    # --------------------------------------------------------------------------
 
     for node_id, node_data in graph.nodes(
         data=True
@@ -146,34 +184,319 @@ def _find_v2_platform_node(
             )
         ).upper()
 
-        # 일부 JSON에서 type 필드가 없더라도
-        # node id의 PLATFORM 표기를 이용할 수 있게 한다.
         is_platform = (
             node_type == "PLATFORM"
-            or "PLATFORM" in str(node_id).upper()
+            or "PLATFORM" in str(
+                node_id
+            ).upper()
         )
 
         if not is_platform:
             continue
 
-        node_name = _normalize_station_text(
-            node_data.get(
-                "name",
-                "",
+        node_name = (
+            _normalize_station_text(
+                node_data.get(
+                    "name",
+                    "",
+                )
             )
         )
 
-        if target in node_name:
-            candidates.append(
+        if target not in node_name:
+            continue
+
+        candidates.append(
+            (
+                str(node_id),
+                node_data,
+            )
+        )
+
+    # 후보 자체가 없으면 실패
+    if not candidates:
+        return None
+
+    # 방향만으로 정확히 하나면 바로 사용
+    if len(candidates) == 1:
+        return candidates[0][0]
+
+    # --------------------------------------------------------------------------
+    # 2. 같은 방향 PLATFORM이 여러 개라면 노선으로 구분
+    # --------------------------------------------------------------------------
+
+    normalized_line_name = str(
+        line_name or ""
+    ).strip()
+
+    line_keyword = (
+        line_file_keywords.get(
+            normalized_line_name
+        )
+    )
+
+    if line_keyword:
+
+        line_matching_candidates: list[
+            str
+        ] = []
+
+        for node_id, node_data in candidates:
+
+            source_files = (
+                node_data.get(
+                    "source_files",
+                    [],
+                )
+            )
+
+            if not isinstance(
+                source_files,
+                list,
+            ):
+                source_files = []
+
+            source_text = " ".join(
+                str(source_file).lower()
+                for source_file in source_files
+            )
+
+            if (
+                line_keyword.lower()
+                in source_text
+            ):
+                line_matching_candidates.append(
+                    node_id
+                )
+
+        if len(
+            line_matching_candidates
+        ) == 1:
+            return (
+                line_matching_candidates[0]
+            )
+
+    # --------------------------------------------------------------------------
+    # 애매한 경우 임의 선택하지 않는다.
+    # --------------------------------------------------------------------------
+
+    return None
+
+
+def _load_v2_station_graph(
+    station_name: str,
+) -> Any | None:
+    """
+    V2 역사 그래프를 로드한다.
+
+    - 환승역/분절형 그래프: 폴더 내부 JSON을 병합
+    - 일반역: 단일 JSON 로드
+    """
+
+    normalized_station_name = (
+        _normalize_station_text(
+            station_name
+        )
+    )
+
+    transfer_config = (
+        TRANSFER_STATION_CONFIG.get(
+            normalized_station_name
+        )
+    )
+
+    if transfer_config:
+        station_directory = (
+            STATION_GRAPHS_V2_DIR
+            / transfer_config["folder"]
+        )
+
+        return (
+            build_station_graph_from_directory(
+                station_directory,
+                transfer_config[
+                    "parent_station_code"
+                ],
+            )
+        )
+
+    file_name = (
+        STATION_FILE_CONFIG.get(
+            normalized_station_name
+        )
+    )
+
+    if not file_name:
+        return None
+
+    try:
+        return load_station_graph(
+            file_name
+        )
+
+    except FileNotFoundError:
+        return None
+
+
+def _find_v2_exit_nodes(
+    graph: Any,
+) -> list[str]:
+    """
+    그래프의 EXIT / ENTRANCE 노드를 모두 찾는다.
+    """
+
+    exit_nodes: list[str] = []
+
+    for node_id, node_data in graph.nodes(
+        data=True
+    ):
+        node_type = str(
+            node_data.get(
+                "type",
+                "",
+            )
+        ).upper()
+
+        if node_type in {
+            "EXIT",
+            "ENTRANCE",
+        }:
+            exit_nodes.append(
                 str(node_id)
             )
 
-    # 정확히 하나일 때만 사용한다.
-    # 애매한 경우 임의 선택하지 않는다.
-    if len(candidates) == 1:
-        return candidates[0]
+    return exit_nodes
 
-    return None
+
+def _find_best_v2_internal_route(
+    graph: Any,
+    start_nodes: list[str],
+    end_nodes: list[str],
+) -> dict[str, Any] | None:
+    """
+    가능한 start/end 조합 중 성공한 경로를 모아
+    현재 MVP 기준 edge 수가 가장 적은 경로를 선택한다.
+    """
+
+    candidates: list[
+        dict[str, Any]
+    ] = []
+
+    for start_node in start_nodes:
+        for end_node in end_nodes:
+            if start_node == end_node:
+                continue
+
+            try:
+                result = (
+                    find_internal_route(
+                        graph,
+                        start_node,
+                        end_node,
+                    )
+                )
+
+            except ValueError:
+                continue
+
+            if (
+                result.get("status")
+                != "SUCCESS"
+            ):
+                continue
+
+            candidates.append(
+                result
+            )
+
+    if not candidates:
+        return None
+
+    return min(
+        candidates,
+        key=lambda item: len(
+            item.get(
+                "edge_path",
+                [],
+            )
+        ),
+    )
+
+
+def _attach_v2_required_facilities(
+    result: dict[str, Any],
+) -> dict[str, Any]:
+    """
+    V2 경로에서 사용한 엘리베이터를 추출한다.
+    현재는 실시간 운행 여부를 경로 계산에 사용하지 않는다.
+    """
+
+    result = dict(result)
+
+    required_facilities: list[
+        dict[str, Any]
+    ] = []
+
+    seen_facility_ids: set[str] = set()
+
+    for edge in result.get(
+        "edge_path",
+        [],
+    ):
+        if not isinstance(
+            edge,
+            dict,
+        ):
+            continue
+
+        mode = str(
+            edge.get(
+                "mode",
+                "",
+            )
+        ).upper()
+
+        if mode != "ELEVATOR":
+            continue
+
+        facility_id = edge.get(
+            "facility_id"
+        )
+
+        if facility_id is None:
+            continue
+
+        facility_id = str(
+            facility_id
+        ).strip()
+
+        if not facility_id:
+            continue
+
+        if facility_id in seen_facility_ids:
+            continue
+
+        seen_facility_ids.add(
+            facility_id
+        )
+
+        required_facilities.append(
+            {
+                "facility_id": facility_id,
+                "facility_type": "ELEVATOR",
+                "realtime": {
+                    "realtime_status": (
+                        "UNKNOWN"
+                    )
+                },
+            }
+        )
+
+    result[
+        "required_facilities"
+    ] = required_facilities
+
+    return result
 
 
 def _build_v2_transfer_internal_path(
@@ -223,6 +546,9 @@ def _build_v2_transfer_internal_path(
             movement.get(
                 "arrival_direction_station"
             ),
+            movement.get(
+                "from_line"
+            ),
         )
     )
 
@@ -233,6 +559,9 @@ def _build_v2_transfer_internal_path(
             graph,
             movement.get(
                 "departure_direction_station"
+            ),
+            movement.get(
+                "to_line"
             ),
         )
     )
@@ -341,11 +670,189 @@ def _build_v2_transfer_internal_path(
     return result
 
 
+def _build_v2_boarding_internal_path(
+    movement: dict[str, Any],
+) -> dict[str, Any] | None:
+    """
+    BOARDING movement를 V2 그래프로 계산한다.
+
+    EXIT -> 역사 내부 이동 -> 탑승 방향 PLATFORM
+    """
+
+    station_name = (
+        _normalize_station_text(
+            movement.get(
+                "station_name"
+            )
+        )
+    )
+
+    graph = _load_v2_station_graph(
+        station_name
+    )
+
+    if graph is None:
+        return None
+
+    platform_node = (
+        _find_v2_platform_node(
+            graph,
+            movement.get(
+                "departure_direction_station"
+            ),
+            movement.get(
+                "line_name"
+            ),
+        )
+    )
+
+    exit_nodes = (
+        _find_v2_exit_nodes(
+            graph
+        )
+    )
+
+    if (
+        not platform_node
+        or not exit_nodes
+    ):
+        return {
+            "status": "NODE_NOT_FOUND",
+            "movement": movement,
+            "start_node": None,
+            "end_node": platform_node,
+            "node_path": [],
+            "edge_path": [],
+            "steps": [],
+            "required_facilities": [],
+        }
+
+    result = (
+        _find_best_v2_internal_route(
+            graph=graph,
+            start_nodes=exit_nodes,
+            end_nodes=[
+                platform_node
+            ],
+        )
+    )
+
+    if result is None:
+        return {
+            "status": "PATH_NOT_FOUND",
+            "movement": movement,
+            "start_node": None,
+            "end_node": platform_node,
+            "node_path": [],
+            "edge_path": [],
+            "steps": [],
+            "required_facilities": [],
+        }
+
+    result = dict(result)
+    result["movement"] = movement
+
+    return (
+        _attach_v2_required_facilities(
+            result
+        )
+    )
+
+
+def _build_v2_alighting_internal_path(
+    movement: dict[str, Any],
+) -> dict[str, Any] | None:
+    """
+    ALIGHTING movement를 V2 그래프로 계산한다.
+
+    하차 PLATFORM -> 역사 내부 이동 -> EXIT
+    """
+
+    station_name = (
+        _normalize_station_text(
+            movement.get(
+                "station_name"
+            )
+        )
+    )
+
+    graph = _load_v2_station_graph(
+        station_name
+    )
+
+    if graph is None:
+        return None
+
+    platform_node = (
+        _find_v2_platform_node(
+            graph,
+            movement.get(
+                "arrival_direction_station"
+            ),
+            movement.get(
+                "line_name"
+            ),
+        )
+    )
+
+    exit_nodes = (
+        _find_v2_exit_nodes(
+            graph
+        )
+    )
+
+    if (
+        not platform_node
+        or not exit_nodes
+    ):
+        return {
+            "status": "NODE_NOT_FOUND",
+            "movement": movement,
+            "start_node": platform_node,
+            "end_node": None,
+            "node_path": [],
+            "edge_path": [],
+            "steps": [],
+            "required_facilities": [],
+        }
+
+    result = (
+        _find_best_v2_internal_route(
+            graph=graph,
+            start_nodes=[
+                platform_node
+            ],
+            end_nodes=exit_nodes,
+        )
+    )
+
+    if result is None:
+        return {
+            "status": "PATH_NOT_FOUND",
+            "movement": movement,
+            "start_node": platform_node,
+            "end_node": None,
+            "node_path": [],
+            "edge_path": [],
+            "steps": [],
+            "required_facilities": [],
+        }
+
+    result = dict(result)
+    result["movement"] = movement
+
+    return (
+        _attach_v2_required_facilities(
+            result
+        )
+    )
+
+
 def _attach_v2_internal_paths(
     recommendation_result: dict[str, Any],
 ) -> None:
     """
-    최종 추천 경로에 신형 환승역 내부 경로를 추가한다.
+    최종 추천 경로에 신형 V2 역사 내부 경로를 추가한다.
 
     기존 internal_paths는 건드리지 않고
     internal_paths_v2라는 별도 필드에 저장한다.
@@ -399,16 +906,32 @@ def _attach_v2_internal_paths(
             )
         ).upper()
 
-        # 현재 MVP에서는 환승만 V2 그래프로 처리
-        if movement_type != "TRANSFER":
-            continue
-
         try:
-            internal_path = (
-                _build_v2_transfer_internal_path(
-                    movement
+            internal_path = None
+
+            if movement_type == "BOARDING":
+                internal_path = (
+                    _build_v2_boarding_internal_path(
+                        movement
+                    )
                 )
-            )
+
+            elif movement_type == "TRANSFER":
+                internal_path = (
+                    _build_v2_transfer_internal_path(
+                        movement
+                    )
+                )
+
+            elif movement_type == "ALIGHTING":
+                internal_path = (
+                    _build_v2_alighting_internal_path(
+                        movement
+                    )
+                )
+
+            else:
+                continue
 
             if internal_path is not None:
                 internal_paths_v2.append(
@@ -861,7 +1384,7 @@ async def get_recommended_route(
         ) from error
 
     # ==========================================================================
-    # 7. 신형 역사 그래프 V2 환승 경로 추가
+    # 7. 신형 역사 그래프 V2 내부 경로 추가
     #
     # 기존 추천 결과와 internal_paths는 그대로 유지한다.
     # 화면 표시용으로 internal_paths_v2만 추가한다.
